@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Алматы Политехникалық Колледжі Кітапханасы - Білім Ғарышы</title>
+    <link rel="icon" href="/static/images/header/icon_site_logo.svg" type="image/x-icon">
+    <link rel="stylesheet" href="/static/style.css">
+    <link rel="stylesheet" href="/static/online_assistant.css">
+    <link rel="stylesheet" href="/static/tour_frame_style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <link rel="stylesheet" href="/static/header/styles.css">
+    <style>
+        /* Ensure particle background is behind all content */
+        #particle-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+        }
+
+        /* Header Placeholder */
+        #header-placeholder {
+            margin-bottom: 0; /* Remove gap below header */
+        }
+.header {
+            position: fixed;
+            top: 200px; /* Adjusted to avoid overlap with hero section */
+            left: 0;
+            width: 100%;
+            z-index: 10; /* Ensure header is above all content */
+        }
+        /* Hero Section */
+        .hero {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    overflow: hidden;
+   
+    background-size: 100% auto; /* Ширина 100%, высота автоматически */
+    background-position: center -333px; /* Сдвиг вверх */
+    z-index: -1;
+}
+
+
+
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(10, 10, 35, 0.7); 
+            z-index: -1;
+            
+        }
+
+        .hero h1 {
+    font-size: 48px;
+    position: relative; /* или absolute */
+    top: -333px; 
+    text-shadow: 0 0 10px rgba(0, 221, 235, 0.5);
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    color: #ffffff;
+}
+
+
+      
+        
+       /* Library Fund Section */
+.library-fund {
+    padding: 120px 50px; /* Добавлен отступ сверху */
+    max-width: 1200px;
+    margin: 50px auto; /* Общий внешний отступ */
+    text-align: center;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    position: relative;
+    z-index: 1; /* Above particle background */
+}
+
+
+        .library-fund h2 {
+            font-size: 36px;
+            margin-bottom: 40px;
+            text-shadow: 0 0 10px rgba(0, 221, 235, 0.5);
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+        }
+
+        .library-fund p {
+            font-size: 16px;
+            line-height: 1.6;
+            opacity: 0.8;
+            margin-bottom: 20px;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 300;
+        }
+
+        /* Working Hours Section */
+        .working-hours {
+            padding: 40px 50px;
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            position: relative;
+            z-index: 1;
+            margin-top: 20px;
+        }
+
+        .working-hours h3 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 500;
+        }
+
+        .working-hours p {
+            font-size: 18px;
+            opacity: 0.9;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 300;
+        }
+
+        /* Librarians Section */
+        .librarians {
+    padding: 60px 20px;
+    background-color: #00000000;
+    text-align: center;
+}
+
+.librarians h2 {
+    font-size: 42px;
+    margin-bottom: 40px;
+    color: #ffffff;
+    font-family: 'Poppins', sans-serif;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.librarian-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.librarian-card {
+    background-color: #9b9696be;
+    border-radius: 15px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+    text-align: center;
+    padding: 30px 20px;
+}
+
+.librarian-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+}
+
+.librarian-card img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-bottom: 20px;
+    transition: transform 0.3s;
+}
+
+.librarian-card:hover img {
+    transform: scale(1.05);
+}
+
+.librarian-card h3 {
+    font-size: 26px;
+    margin-bottom: 10px;
+    color: #ffffff;
+    font-family: 'Poppins', sans-serif;
+}
+
+.librarian-card p {
+    font-size: 16px;
+    color: #ffffff;
+    margin-bottom: 15px;
+    line-height: 1.6;
+}
+
+.librarian-card .contact {
+    font-size: 14px;
+    color: #007bff;
+    font-weight: bold;
+    transition: color 0.3s;
+    cursor: pointer;
+}
+
+.librarian-card .contact:hover {
+    color: #0056b3;
+    text-decoration: underline;
+}
+
+
+       
+        /* Animations */
+        @keyframes float {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0); }
+        }
+
+        .hero h1, .hero p, .cta-button {
+            animation: float 3s ease-in-out infinite;
+            margin-top: -333;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+           
+            .working-hours {
+                padding: 30px 20px;
+            }
+
+           
+        }
+    </style>
+</head>
+<body>
+    <div id="particle-background"></div>
+
+    <div id="header-placeholder"></div>
+
+    <script>
+    // Функция для загрузки и инициализации хедера
+    async function loadHeader() {
+        try {
+            // Загружаем HTML хедера
+            const response = await fetch('/views/header.html');
+            const html = await response.text();
+            
+            // Вставляем HTML в страницу
+            document.getElementById('header-placeholder').innerHTML = html;
+            
+            // Загружаем ВСЕ скрипты из хедера
+            await loadScriptsFromHeader(html);
+            
+            // Инициализируем компоненты
+            initComponents();
+            
+        } catch (error) {
+            console.error('Ошибка загрузки хедера:', error);
+        }
+    }
+    
+    // Функция для извлечения и загрузки скриптов из HTML хедера
+    function loadScriptsFromHeader(html) {
+        return new Promise((resolve) => {
+            const scriptTags = html.match(/<script\b[^>]*>([\s\S]*?)<\/script>/gi) || [];
+            let loadedCount = 0;
+            
+            if (scriptTags.length === 0) return resolve();
+    
+            scriptTags.forEach(scriptTag => {
+                const srcMatch = scriptTag.match(/src="([^"]*)"/i);
+                if (srcMatch && srcMatch[1]) {
+                    const script = document.createElement('script');
+                    script.src = srcMatch[1];
+                    script.onload = () => {
+                        loadedCount++;
+                        if (loadedCount === scriptTags.length) resolve();
+                    };
+                    document.body.appendChild(script);
+                } else {
+                    loadedCount++;
+                    if (loadedCount === scriptTags.length) resolve();
+                }
+            });
+        });
+    }
+    
+    // Функция инициализации всех компонентов
+    function initComponents() {
+        // 1. Инициализация даты и времени
+        function initDateTime() {
+            const dateElement = document.getElementById('current-date');
+            const timeElement = document.getElementById('current-time');
+            
+            function updateTime() {
+                const now = new Date();
+                const optionsDate = { year: 'numeric', month: 'long', day: 'numeric' };
+                const optionsTime = { hour: '2-digit', minute: '2-digit', second: '2-digit' };
+                if (dateElement) dateElement.textContent = now.toLocaleDateString('ru-RU', optionsDate).toUpperCase();
+                if (timeElement) timeElement.textContent = now.toLocaleTimeString('ru-RU', optionsTime);
+            }
+    
+            setInterval(updateTime, 1000);
+            updateTime();
+        }
+    
+        // 2. Инициализация IP-адреса
+        function initIPAddress() {
+            const ipElement = document.getElementById('ip-address');
+            if (!ipElement) return;
+            
+            fetch('https://api.ipify.org?format=json')
+                .then(response => response.json())
+                .then(data => {
+                    ipElement.textContent = data.ip;
+                })
+                .catch(() => {
+                    ipElement.textContent = 'Не удалось загрузить IP';
+                });
+        }
+    
+        // 3. Инициализация переключателя языка
+        function initLanguageSwitcher() {
+            const languageSelect = document.getElementById('language-select');
+            if (languageSelect) {
+                languageSelect.addEventListener('change', (event) => {
+                    const selectedLanguage = event.target.value;
+                    console.log('Selected language:', selectedLanguage);
+                    // Логика для смены языка
+                });
+            }
+        }
+    
+        // 4. Инициализация мобильного меню
+        function initMobileMenu() {
+            const menuToggle = document.querySelector('.mobile-menu-toggle');
+            const mobileMenu = document.querySelector('.mobile-menu');
+            const overlay = document.querySelector('.overlay');
+    
+            if (menuToggle && mobileMenu && overlay) {
+                // Обработчик клика по бургер-иконке
+                menuToggle.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    
+                    menuToggle.classList.toggle('active');
+                    mobileMenu.classList.toggle('active');
+                    overlay.classList.toggle('active');
+                    document.body.classList.toggle('no-scroll');
+                });
+    
+                // Обработчик клика по оверлею
+                overlay.addEventListener('click', () => {
+                    menuToggle.classList.remove('active');
+                    mobileMenu.classList.remove('active');
+                    overlay.classList.remove('active');
+                    document.body.classList.remove('no-scroll');
+                });
+    
+                // Обработчик клика по пунктам меню
+                document.querySelectorAll('.mobile-menu a').forEach(link => {
+                    link.addEventListener('click', () => {
+                        menuToggle.classList.remove('active');
+                        mobileMenu.classList.remove('active');
+                        overlay.classList.remove('active');
+                        document.body.classList.remove('no-scroll');
+                    });
+                });
+            }
+        }
+    
+        // 5. Инициализация подменю в мобильной версии
+        function initMobileSubmenus() {
+            document.querySelectorAll('.mobile-menu .dropdown-arrow').forEach(arrow => {
+                arrow.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    
+                    const menuItem = this.closest('.menu-item');
+                    const dropdownMenu = menuItem.querySelector('.dropdown-menu');
+                    
+                    // Закрываем все другие открытые подменю
+                    document.querySelectorAll('.mobile-menu .dropdown-menu').forEach(menu => {
+                        if (menu !== dropdownMenu) {
+                            menu.classList.remove('active');
+                            menu.previousElementSibling.querySelector('.dropdown-arrow').classList.remove('rotated');
+                        }
+                    });
+                    
+                    // Переключаем текущее подменю
+                    dropdownMenu.classList.toggle('active');
+                    this.classList.toggle('rotated');
+                });
+            });
+        }
+    
+        // Вызываем все функции инициализации
+        initDateTime();
+        initIPAddress();
+        initLanguageSwitcher();
+        initMobileMenu();
+        initMobileSubmenus();
+    }
+    
+    // Загружаем хедер при полной загрузке DOM
+    document.addEventListener('DOMContentLoaded', loadHeader);
+    
+    // Добавляем стили для мобильного меню
+    const mobileMenuStyles = `
+        .no-scroll {
+            overflow: hidden;
+        }
+        
+        .mobile-menu-toggle.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+        
+        .mobile-menu-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+        
+        .mobile-menu-toggle.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -6px);
+        }
+        
+        .mobile-menu.active {
+            right: 0;
+            z-index: 9999999999999999;
+        }
+        
+        .overlay.active {
+            display: block;
+        }
+        
+        .dropdown-arrow.rotated {
+            transform: rotate(180deg);
+        }
+        
+        @media (max-width: 992px) {
+            .desktop-menu {
+                display: none;
+            }
+            
+            .mobile-menu-toggle {
+                display: flex;
+            }
+        }
+    `;
+    
+    const styleElement = document.createElement('style');
+    styleElement.textContent = mobileMenuStyles;
+    document.head.appendChild(styleElement);
+    </script>
+
+
+   
+
+<section class="library-fund" >
+    <h2 data-translate="library_fund_title">Кітапхана қоры</h2>
+    <p data-translate="library_fund_text1">
+        <strong data-translate="as_of_2023">2023 жылғы мәліметтер бойынша</strong> Алматы политехникалық колледжінің кітапхана қоры шамамен 35 мың дана. Оған көркем әдебиет, ғылыми әдебиет, мамандандырылған оқулықтар және басқа да оқу құралдары кіреді. 2011 жылдан бастап кітап қоры цифрлық форматта цифрландырылуда.
+    </p>
+    <p data-translate="library_fund_text2">
+        Кітапхананың автоматтандырылған электрондық базасы «Кітапхана Ісі», «Qazaq Mura» платформаларында жұмыс істейді, сондай-ақ интернет желісіне қосылған. Материалдық-техникалық жабдықтарына моноблоктар, түрлі-түсті принтерлер, компьютерлер, ксерокстар және басқа да техника түрлері кіреді.
+    </p>
+    <p data-translate="library_fund_text3">
+        Кітапхана оқытушылармен және студенттермен тығыз байланыс орнатады, естелік күндерге арналған іс-шараларды ұдайы ұйымдастырады. Сондай-ақ кітапхана оқытушыларды жаңа кітаптар туралы хабардар етеді, сабақ тақырыптарына сәйкес өзекті материалдарды іріктеп береді, оқулықтармен қамтамасыз етеді және кітап көрмелерін ұйымдастырады.
+    </p>
+</section>
+
+<section class="librarians">
+    <h2 class="section-title text-4xl font-bold text-center" data-translate="qurlym" >ҚҰРЫЛЫМЫ</h2>
+
+    <div class="librarian-grid">
+        <div class="librarian-card">
+            <img src="/static/images/lib1.jpg" alt="Мукалдиева Жанар Бокешовна">
+            <h3>Мукалдиева Жанар Бокешовна</h3>
+            <p data-translate="head_librarian">Кітапхана меңгерушісі</p>
+        </div>
+        <div class="librarian-card">
+            <img src="/static/images/lib2.jpg" alt="Рашидова Мадина Рашидовна">
+            <h3>Рашидова Мадина Рашидовна</h3>
+            <p data-translate="librarian">Кітапханашы</p>
+        </div>
+    </div>
+</section>
+    
+    
+
+    <div id="footer-placeholder"></div>
+    <script>
+        fetch('/views/footer.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer-placeholder').innerHTML = data;
+            });
+    </script>
+
+    <script src="/static/translations.js"></script>
+    <script src="/static/languageSwitcher.js"></script>
+    <script src="/static/virtualTour.js"></script>
+    <script src="/static/online_assistant.js"></script>
+    <script src="/static/script.js"></script>
+    <script src="/static/particles_config.js"></script>
+    <script src="/static/major-body.js"></script>
+    <script src="/static/partners-scroll.js"></script>
+    <script src="/static/header/main.js"></script>
+    <script src="/static/modal-page/js/specialtyPopup.js"></script>
+</body>
+</html>

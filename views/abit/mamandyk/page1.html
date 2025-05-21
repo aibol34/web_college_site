@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="icon" href="/static/images/header/icon_site_logo.svg" type="image/x-icon">
+  <link rel="stylesheet" href="/static/style.css">
+  <link rel="stylesheet" href="/static/online_assistant.css">
+  <link rel="stylesheet" href="/static/tour_frame_style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+
+  <!-- Подключение библиотеки particles.js -->
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+  <link rel="stylesheet" href="/static/header/styles.css">
+
+  <title>Мамандықтар</title>
+  <style>
+    /* ======= ОБЩИЙ СТИЛЬ СТРАНИЦЫ ======= */
+    /* body {
+      margin: 0;
+      padding: 20px;
+      background-color: #111111fd;
+      color: #ffffff;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    } */
+
+    /* ======= СЕКЦИЯ МАМАНДЫҚТАР ======= */
+    .majors {
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    .majors h2 {
+      font-size: 28px;
+      color: #0ff;
+      margin-bottom: 30px;
+    }
+
+    /* ======= СПИСОК КАРТОЧЕК ======= */
+    .majors-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 25px;
+    }
+
+    /* ======= КАРТОЧКА МАМАНДЫҚ ======= */
+    .major-card {
+      background: #1e1e1e;
+      border-radius: 12px;
+      padding: 20px;
+      width: 250px;
+      box-shadow: 0 0 15px rgba(0, 255, 255, 0.2);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .major-card:hover {
+      transform: scale(1.03);
+      box-shadow: 0 0 25px rgba(0, 255, 255, 0.4);
+    }
+
+    .major-card img {
+      width: 100%;
+      border-radius: 8px;
+      margin-bottom: 15px;
+    }
+
+    .major-card p {
+      margin: 5px 0;
+      font-size: 15px;
+    }
+
+    .specialty-btn {
+      background: linear-gradient(45deg, #0ff, #00aaff);
+      border: none;
+      color: black;
+      font-weight: bold;
+      padding: 10px 20px;
+      margin-top: 10px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.2s ease;
+    }
+
+    .specialty-btn:hover {
+      background: #0ff;
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+    <div id="particle-background"></div>
+
+          <script>
+            const container = document.getElementById('news-gallery');
+        
+            fetch('https://almatypolytech.edu.kz/api/items/news?fields=title,content,date_created,image.id')
+              .then(res => res.json())
+              .then(data => {
+                const newsItems = data.data;
+        
+                newsItems.forEach(item => {
+                  const { title, content, date_created, image } = item;
+        
+                  const wrapper = document.createElement('div');
+                  wrapper.className = 'news-item';
+        
+                  const titleEl = document.createElement('h3');
+                  titleEl.textContent = title;
+        
+                  const contentEl = document.createElement('p');
+                  contentEl.textContent = content;
+        
+                  const img = document.createElement('img');
+                  img.alt = title;
+                  img.className = 'news-image';
+                  img.loading = 'lazy';
+        
+                  if (image && image.id) {
+                    img.src = `https://almatypolytech.edu.kz/api/assets/${image.id}?key=system-large-contain`;
+                  } else {
+                    img.src = 'https://via.placeholder.com/400x160?text=ФОТО+ЖОҚ';
+                  }
+        
+                  img.onerror = () => {
+                    img.src = 'https://via.placeholder.com/400x160?text=ФОТО+ЖОҚ';
+                  };
+        
+                  const dateEl = document.createElement('small');
+                  const date = new Date(date_created);
+                  dateEl.textContent = `Жарияланған күні: ${date.toLocaleDateString('kk-KZ', {
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric'
+                  })}`;
+        
+                  const toggleBtn = document.createElement('button');
+                  toggleBtn.className = 'read-more-btn';
+                  toggleBtn.textContent = 'Толығырақ';
+        
+                  toggleBtn.addEventListener('click', () => {
+                    const isExpanded = wrapper.classList.toggle('expanded');
+                    toggleBtn.textContent = isExpanded ? 'Жасыру' : 'Толығырақ';
+                  });
+        
+                  wrapper.appendChild(titleEl);
+                  wrapper.appendChild(contentEl);
+                  wrapper.appendChild(img);
+                  wrapper.appendChild(dateEl);
+                  wrapper.appendChild(toggleBtn);
+        
+                  container.appendChild(wrapper);
+                });
+              })
+              .catch(error => {
+                console.error('Қате:', error);
+              });
+          </script>	
+
+
+  <!-- Секция с мамандықтар -->
+  <section class="majors">
+    <h2 data-translate="our_majors">Біздің мамандықтар</h2>
+    <div class="majors-container">
+        <div class="major-card">
+            <img src="/static/images/job/spec_3.png" alt="Major 1">
+            <p>06130100</p>
+            <p data-translate="major_0715100">АҚПАРАТТЫҚ ҚАУІПСІЗДІК ЖҮЙЕЛЕРІ</p>
+            <button class="specialty-btn" data-specialty="cybersecurity" data-translate="more">Көбірек</button>
+        </div>
+        <div class="major-card">
+            <img src="/static/images/job/spec_2.png" alt="Major 2">
+            <p>06120200</p>
+            <p data-translate="major_0612100">ЕСЕПТЕУ ТЕХНИКАСЫ ЖӘНЕ АҚПАРАТТЫҚ ЖЕЛІЛЕР</p>
+            <button class="specialty-btn" data-specialty="computing" data-translate="more">Көбірек</button>
+        </div>
+        <div class="major-card">
+            <img src="/static/images/job/spec_1.png" alt="Major 3">
+            <p>06130100</p>
+            <p data-translate="major_0353100">БАҒДАРЛАМАЛЫҚ ҚАМТАМАСЫЗ ЕТУ</p>
+            <button class="specialty-btn" data-specialty="software" data-translate="more">Көбірек</button>
+        </div>
+        <div class="major-card">
+            <img src="/static/images/job/spec_4.png" alt="Major 4">
+            <p>07140900</p>
+            <p data-translate="major_05315100">РАДИОТЕХНИКА, ЭЛЕКТРОНИКА ЖӘНЕ ТЕЛЕКОММУНИКАЦИЯЛАР</p>
+            <button class="specialty-btn" data-specialty="radio" data-translate="more">Көбірек</button>
+        </div>
+        <div class="major-card">
+            <img src="/static/images/job/spec_5.png" alt="Major 5">
+            <p>07151100</p>
+            <p data-translate="major_0345300">Машиналар мен жабдықтарды пайдалану және техникалық қызмет көрсету</p>
+            <button class="specialty-btn" data-specialty="machinery" data-translate="more">Көбірек</button>
+        </div>
+    </div>
+</section>
+
+<!-- Модальное окно -->
+<div class="specialtyPopup" id="specialtyPopup">
+    <div class="specialtyPopup-content">
+        <span class="specialtyPopup-close">×</span>
+        <div class="specialtyPopup-header">
+            <h2 id="specialtyTitle"></h2>
+            <p class="specialtyPopup-subtitle" id="specialtySubtitle"></p>
+        </div>
+        <div class="specialtyPopup-body" id="specialtyDescription"></div>
+        <div class="specialtyPopup-details" id="specialtyDetails"></div>
+    </div>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const modal = document.getElementById("specialtyPopup");
+        const title = document.getElementById("specialtyTitle");
+        const subtitle = document.getElementById("specialtySubtitle");
+        const description = document.getElementById("specialtyDescription");
+        const details = document.getElementById("specialtyDetails");
+        const closeModal = document.querySelector(".specialtyPopup-close");
+        const specialtyButtons = document.querySelectorAll(".specialty-btn");
+
+        const specialties = {
+        cybersecurity: {
+            title: "АҚПАРАТТЫҚ ҚАУІПСІЗДІК ЖҮЙЕЛЕРІ",
+            subtitle: "АҚПАРАТТЫҚ ҚАУІПСІЗДІК ТЕХНИГІ",
+            description: `
+                <p>Ақпараттық қауіпсіздік жүйелері мамандығы бойынша білім алушыларға ақпараттық жүйелерді қорғау, киберқауіптерді анықтау және олардың алдын алу сияқты кәсіби дағдыларды үйретуге бағытталған. Олар желілерді қорғау, шифрлау технологияларын қолдану және қауіпсіздік аудитін жүргізу сияқты тапсырмаларды орындай алады.</p>
+                <p>Оқу барысында студенттер заманауи қауіпсіздік құралдарымен жұмыс істеуді үйренеді. Бұл мамандық ақпараттық технологиялар саласындағы сұранысқа ие мамандықтардың бірі болып табылады.</p>
+            `,
+            details: `
+                <div class="detail-item">
+                    <i class="fas fa-book"></i>
+                    <p><strong>Мамандық:</strong> 06130100 «АҚПАРАТТЫҚ ҚАУІПСІЗДІК ЖҮЙЕЛЕРІ»</p>
+                </div>
+                <div class="detail-item">
+                    <i class="fas fa-certificate"></i>
+                    <p><strong>Квалификация:</strong> 4506120103 «Ақпараттық қауіпсіздік технигі»</p>
+                </div>
+                <div class="detail-item">
+                    <i class="fas fa-clock"></i>
+                    <p><strong>Оқу мерзімі:</strong> 9 сынып негізінде – 3 жыл 10 ай</p>
+                </div>
+                <div class="detail-item">
+                    <i class="fas fa-users"></i>
+                    <p><strong>Оқу формасы:</strong> Күндізгі</p>
+                </div>
+                <div class="detail-item">
+                    <i class="fas fa-globe"></i>
+                    <p><strong>Оқыту тілі:</strong> Қазақ тілі, орыс тілі</p>
+                </div>
+            `
+        },
+        computing: {
+            title: "ЕСЕПТЕУ ТЕХНИКАСЫ ЖӘНЕ АҚПАРАТТЫҚ ЖЕЛІЛЕР",
+            subtitle: "КОМПЬЮТЕР АППАРАТТЫҚ, ҚАМТАМАСЫЗ ЕТУ ОПЕРАТОРЫ",
+            description: `
+                <p>Компьютер аппараттық, қамтамасыз ету операторы мамандығы бойынша білім алушыларға компьютерлік желілерді басқару, компьютерлерді жөндеу және техникалық қызмет көрсету, ақпараттық жүйелерді орнату және басқару сияқты кәсіби дағдыларды үйретуге бағытталған. Олар маршрутизаторлар мен коммутаторларды басқару, желілерді жобалау және қауіпсіздікті қамтамасыз ету сияқты кең ауқымды тапсырмаларды орындай алады.</p>
+                <p>Оқу барысында студенттер теориялық білімді практикамен ұштастырады, сонымен қатар заманауи IT-жабдықтарымен және бағдарламалық қамтамасыз етумен жұмыс істеуді үйренеді.</p>
+            `,
+            details: `
+                <div class="detail-item">
+                    <i class="fas fa-book"></i>
+                    <p><strong>Мамандық:</strong> 06120200 «ЕСЕПТЕУ ТЕХНИКАСЫ ЖӘНЕ АҚПАРАТТЫҚ ЖЕЛІЛЕР»</p>
+                </div>
+                <div class="detail-item">
+                    <i class="fas fa-certificate"></i>
+                    <p><strong>Квалификация:</strong> 4506120102 «Компьютер желілерін басқару операторы»</p>
+                </div>
+                <div class="detail-item">
+                    <i class="fas fa-clock"></i>
+                    <p><strong>Оқу мерзімі:</strong> 9 сынып негізінде – 3 жыл 10 ай</p>
+                </div>
+                <div class="detail-item">
+                    <i class="fas fa-users"></i>
+                    <p><strong>Оқу формасы:</strong> Күндізгі</p>
+                </div>
+                <div class="detail-item">
+                    <i class="fas fa-globe"></i>
+                    <p><strong>Оқыту тілі:</strong> Қазақ тілі, орыс тілі</p>
+                </div>
+            `
+        }
+    };
+
+        specialtyButtons.forEach(button => {
+            button.addEventListener("click", function () {
+                const specialty = this.dataset.specialty;
+                const data = specialties[specialty];
+                title.textContent = data.title;
+                subtitle.textContent = data.subtitle;
+                description.innerHTML = data.description;
+                details.innerHTML = data.details;
+                modal.style.display = "block";
+            });
+        });
+
+        closeModal.addEventListener("click", function () {
+            modal.style.display = "none";
+        });
+
+        window.addEventListener("click", function (event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        });
+    });
+</script>
+
+
+     <footer class="footer">
+            <div class="footer-container">
+              <!-- О сайте -->
+              <div class="footer-section">
+                <h3 data-translate="about_site">Сайт туралы</h3>
+                <p id="copyright-year"></p>
+                <script>
+                  const currentYear = new Date().getFullYear();
+                  document.getElementById("copyright-year").textContent = `©1940–${currentYear}`;
+                </script>
+                <p data-translate="college_name">
+                  Алматы қаласы Білім басқармасының «ALMATY POLYTECHNIC COLLEGE» КМҚК
+                </p>
+          
+                <h3 data-translate="social_networks">Әлеуметтік желілер</h3>
+                <div class="social-icons">
+                  <a href="https://www.instagram.com/polytechalmaty/#" target="_blank" aria-label="Instagram">
+                    <img src="/static/images/flot/instagram.png" alt="Instagram" />
+                  </a>
+                  <a href="https://www.facebook.com/people/..." target="_blank" aria-label="Facebook">
+                    <img src="/static/images/flot/facebook.png" alt="Facebook" />
+                  </a>
+                  <a href="https://www.youtube.com/@almatypolytechedukz" target="_blank" aria-label="YouTube">
+                    <img src="/static/images/flot/youtube.png" alt="YouTube" />
+                  </a>
+                  <a href="https://www.tiktok.com/@polytech_college?_t=8ji5qQRP3v3&_r=1" target="_blank" aria-label="TikTok">
+                    <img src="/static/images/flot/tiktok.png" alt="TikTok" />
+                  </a>
+                </div>
+              </div>
+          
+              <!-- Контакты -->
+              <div class="footer-section">
+                <h3 data-translate="contact_label">Байланыс</h3>
+                <p>
+                  <span class="icon">📍</span>
+                  <strong data-translate="address_label">Мекенжай:</strong><br />
+                  <span data-translate="address">Қазақстан, Алматы қ., Тастақ-1 шағын ауданы, 1B</span>
+                </p>
+                <p>
+                  <span class="icon">📞</span>
+                  <strong data-translate="contact_label">Байланыс:</strong><br />
+                  <span data-translate="phone">Тел.: 396 71 39</span><br />
+                  <span data-translate="admission_phone">Қабылдау комиссиясы: 8 707 171 0800</span>
+                </p>
+                <p>
+                  <span class="icon">✉️</span>
+                  <strong data-translate="email_label">Пошта:</strong><br />
+                  <a href="mailto:polytech@aspc.kz">polytech@aspc.kz</a>
+                </p>
+              </div>
+          
+              <!-- Разработчики -->
+              <div class="footer-section">
+                <h3 data-translate="developers">Разработчики сайта</h3>
+                <p>
+                  <span class="icon">👨‍💻</span>
+                  <strong data-translate="developer_name">Жобаны жасаған:</strong><br />
+                  <span data-translate="developer_info">Колледж студенттері мен оқытушылары</span>
+                </p>
+                
+                <a href="https://www.instagram.com/polytech_it_hub?igsh=MXFvd3I1enNxeHpoOA==" class="dev-button" data-translate="contact_developer">Связаться с разработчиком</a>
+              </div>
+            </div>
+          </footer>
+  <!-- Подключённый модальный код будет отдельно, JavaScript и CSS для него ты уже добавил -->
+        <!-- Подключение скриптов -->
+        <script src="/static/translations.js"></script>
+        <script src="/static/languageSwitcher.js"></script>
+        <script src="/static/virtualTour.js"></script>
+        <script src="/static/online_assistant.js"></script>
+        <script src="/static/script.js"></script>
+        <script src="/static/particles_config.js"></script>
+        <script src="/static/major-body.js"></script>
+        <script src="/static/partners-scroll.js"></script>
+        <script src="/static/header/main.js"></script>
+        <!-- <script src="/static/yearUpdater.js"></script> -->
+        <script src="/static/modal-page/js/specialtyPopup.js"></script>
+
+
+
+</body>
+</html>

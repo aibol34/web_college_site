@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/static/images/header/icon_site_logo.svg" type="image/x-icon">
+
+
+    <link rel="stylesheet" href="/static/style.css">
+    <link rel="stylesheet" href="/static/online_assistant.css">
+    <link rel="stylesheet" href="/static/tour_frame_style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+
+    <!-- Подключение библиотеки particles.js -->
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <link rel="stylesheet" href="/static/header/styles.css">
+
+    <title>Форма УПД</title>
+    <style>
+        .regulations-section {
+          background-color: #00000000;
+          color: #fff;
+          padding: 30px 20px;
+          font-family: 'Segoe UI', sans-serif;
+          display: flex;
+          justify-content: center;
+        }
+        
+        .content-wrapper {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          max-width: 1000px;
+          width: 100%;
+        }
+        
+        .regulations-section h1 {
+          font-size: 1.8em;
+          font-weight: bold;
+          text-align: center;
+          color: #a6d8ff;
+          text-shadow: 2px 2px 8px #33ccff;
+          margin-bottom: 30px;
+        }
+        
+        .accordion {
+          width: 100%;
+        }
+        
+        .accordion-item {
+          background-color: #1b1b1b;
+          border-radius: 8px;
+          margin-bottom: 15px;
+          overflow: hidden;
+          box-shadow: 0 0 10px rgba(0, 145, 255, 0.15);
+        }
+        
+        .accordion-header {
+          padding: 20px 24px;
+          cursor: pointer;
+          position: relative;
+          font-size: 18px;
+          font-weight: 600;
+          color: #9fdfff;
+          background-color: #1f1f1f;
+          transition: background-color 0.3s;
+        }
+        
+        .accordion-header:hover {
+          background-color: #22222200;
+        }
+        
+        .accordion-header::after {
+          content: "▼";
+          position: absolute;
+          right: 20px;
+          transition: transform 0.3s;
+        }
+        
+        .accordion-header.active::after {
+          transform: rotate(180deg);
+        }
+        
+        .accordion-content {
+          max-height: 0;
+          overflow: hidden;
+          background-color: #12121200;
+          padding: 0 20px;
+          transition: max-height 0.3s ease;
+        }
+        
+        .accordion-content p {
+          margin: 15px 0 10px;
+          font-size: 14px;
+          color: #cdeeff;
+        }
+        
+        .download-btn {
+          display: inline-flex;
+          align-items: center;
+          background-color: #33ccff;
+          color: #000;
+          padding: 10px 15px;
+          margin: 10px 0 20px;
+          border: none;
+          border-radius: 6px;
+          text-decoration: none;
+          font-weight: bold;
+          transition: background-color 0.3s;
+          font-size: 14px;
+        }
+        
+        .download-btn:hover {
+          background-color: #00aaff;
+        }
+        
+        .download-btn svg {
+          margin-right: 8px;
+          width: 18px;
+          height: 18px;
+          fill: currentColor;
+        }
+        
+        /* Адаптивность */
+        @media (max-width: 600px) {
+          .regulations-section h1 {
+            font-size: 1.3em;
+          }
+        
+          .accordion-header {
+            font-size: 15px;
+            padding: 14px 16px;
+          }
+        
+          .accordion-content p {
+            font-size: 13px;
+          }
+        
+          .download-btn {
+            font-size: 13px;
+            padding: 8px 12px;
+          }
+        }
+        </style>
+</head>
+<body>
+    <div id="particle-background"></div>
+          <script>
+            const container = document.getElementById('news-gallery');
+        
+            fetch('https://almatypolytech.edu.kz/api/items/news?fields=title,content,date_created,image.id')
+              .then(res => res.json())
+              .then(data => {
+                const newsItems = data.data;
+        
+                newsItems.forEach(item => {
+                  const { title, content, date_created, image } = item;
+        
+                  const wrapper = document.createElement('div');
+                  wrapper.className = 'news-item';
+        
+                  const titleEl = document.createElement('h3');
+                  titleEl.textContent = title;
+        
+                  const contentEl = document.createElement('p');
+                  contentEl.textContent = content;
+        
+                  const img = document.createElement('img');
+                  img.alt = title;
+                  img.className = 'news-image';
+                  img.loading = 'lazy';
+        
+                  if (image && image.id) {
+                    img.src = `https://almatypolytech.edu.kz/api/assets/${image.id}?key=system-large-contain`;
+                  } else {
+                    img.src = 'https://via.placeholder.com/400x160?text=ФОТО+ЖОҚ';
+                  }
+        
+                  img.onerror = () => {
+                    img.src = 'https://via.placeholder.com/400x160?text=ФОТО+ЖОҚ';
+                  };
+        
+                  const dateEl = document.createElement('small');
+                  const date = new Date(date_created);
+                  dateEl.textContent = `Жарияланған күні: ${date.toLocaleDateString('kk-KZ', {
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric'
+                  })}`;
+        
+                  const toggleBtn = document.createElement('button');
+                  toggleBtn.className = 'read-more-btn';
+                  toggleBtn.textContent = 'Толығырақ';
+        
+                  toggleBtn.addEventListener('click', () => {
+                    const isExpanded = wrapper.classList.toggle('expanded');
+                    toggleBtn.textContent = isExpanded ? 'Жасыру' : 'Толығырақ';
+                  });
+        
+                  wrapper.appendChild(titleEl);
+                  wrapper.appendChild(contentEl);
+                  wrapper.appendChild(img);
+                  wrapper.appendChild(dateEl);
+                  wrapper.appendChild(toggleBtn);
+        
+                  container.appendChild(wrapper);
+                });
+              })
+              .catch(error => {
+                console.error('Қате:', error);
+              });
+          </script>
+    
+    
+    
+  <div class="regulations-section">
+    <div class="content-wrapper">
+      <h1 data-translate="educational_programs_title">Білім беру бағдарламалары</h1>
+  
+      <div class="accordion">
+        <div class="accordion-item">
+          <div class="accordion-header" data-translate="educational_program_1_title">07140900 Радиотехника, электроника и телекоммуникации</div>
+          <div class="accordion-content">
+            <a class="download-btn" href="https://disk.yandex.kz/d/MLmDn_DM7C8C5Q" download>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path d="M5 20h14v-2H5v2zm7-18L5.33 11h3.67v4h6v-4h3.67L12 2z"/>
+              </svg>
+              <span data-translate="W07140901">3W07140901 Телекоммуникациялық жабдықтар мен байланыс арналарын</span>
+            </a>
+            
+            <a class="download-btn" target="_blank" href="https://disk.yandex.kz/d/9jnaWa4KB8zerw" download>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path d="M5 20h14v-2H5v2zm7-18L5.33 11h3.67v4h6v-4h3.67L12 2z"/>
+              </svg>
+              <span data-translate="S07140902">4S07140902 Телекоммуникациялық байланыс жүйелер технигі</span>
+            </a>
+
+            <a class="download-btn" target="_blank" href="https://disk.yandex.kz/d/m1plG3M7s0UrPw" download>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path d="M5 20h14v-2H5v2zm7-18L5.33 11h3.67v4h6v-4h3.67L12 2z"/>
+              </svg>
+              <span data-translate="S07140905">4S07140905 Мультимедиялық және сандық жүйелер технигі</span>
+            </a>
+
+
+          </div>
+        </div>
+  
+        <div class="accordion-item">
+          <div class="accordion-header" data-translate="educational_program_2_title">06120100 Вычислительная техника и информационные сети (по видам)</div>
+          <div class="accordion-content">
+             <a class="download-btn" target="_blank" href="https://disk.yandex.kz/d/ZeaEHwYqTft9ew" download>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path d="M5 20h14v-2H5v2zm7-18L5.33 11h3.67v4h6v-4h3.67L12 2z"/>
+              </svg>
+              <span data-translate="W06120101">3W06120101 Оператор компьютерного аппаратного обеспечения</span>
+            </a>
+
+            <a class="download-btn" target="_blank" href="https://disk.yandex.kz/d/uJnhbWNK1SHBoA" download>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path d="M5 20h14v-2H5v2zm7-18L5.33 11h3.67v4h6v-4h3.67L12 2z"/>
+              </svg>
+              <span data-translate="S06120102">4S06120102 Техник сетевого и системного администрирования</span>
+            </a>
+
+          </div>
+        </div>
+  
+        <div class="accordion-item">
+          <div class="accordion-header" data-translate="educational_program_3_title">06120200 Системы информационной безопасности</div>
+          <div class="accordion-content">
+             <a class="download-btn" target="_blank" href="https://disk.yandex.kz/d/OfVMP5r--GtbOA" download>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path d="M5 20h14v-2H5v2zm7-18L5.33 11h3.67v4h6v-4h3.67L12 2z"/>
+              </svg>
+              <span data-translate="S06120102">4S06120202 Техник по информационной безопасности</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <div class="accordion-header" data-translate="educational_program_4_title">6130100 Программное обеспечение (по видам)</div>
+          <div class="accordion-content">
+             <a class="download-btn" target="_blank" href="https://disk.yandex.kz/d/2pXDgT3Nn4fv8w" download>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path d="M5 20h14v-2H5v2zm7-18L5.33 11h3.67v4h6v-4h3.67L12 2z"/>
+              </svg>
+              <span data-translate="S06130103">4S06130103 Бағдарламалық қамтамасыздандыруды құрастырушысы</span>
+            </a>
+
+            <a class="download-btn" target="_blank" href="https://disk.yandex.kz/d/pHu8fwEvKkK_tg" download>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path d="M5 20h14v-2H5v2zm7-18L5.33 11h3.67v4h6v-4h3.67L12 2z"/>
+              </svg>
+              <span data-translate="S06130105">4S06130105 Ақпараттық жүйелер технигі</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <div class="accordion-header" data-translate="educational_program_5_title">07151100 Эксплуатация и техническое обслуживание машин и оборудования</div>
+          <div class="accordion-content">
+             <a class="download-btn" target="_blank" href="https://disk.yandex.kz/d/JUK7X4hP6fLy9g" download>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path d="M5 20h14v-2H5v2zm7-18L5.33 11h3.67v4h6v-4h3.67L12 2z"/>
+              </svg>
+              <span data-translate="B07151100">07151100 Эксплуатация и техническое обслуживание машин и оборудования (по отраслям промышленности)</span>
+            </a>
+          </div>
+        </div>
+        
+         </div>
+    </div>
+  </div>
+    <!-- Подключение скриптов -->
+    <script src="/static/translations.js"></script>
+    <script src="/static/languageSwitcher.js"></script>
+    <script src="/static/virtualTour.js"></script>
+    <script src="/static/online_assistant.js"></script>
+    <script src="/static/script.js"></script>
+    <script src="/static/particles_config.js"></script>
+    <script src="/static/major-body.js"></script>
+    <script src="/static/partners-scroll.js"></script>
+    <script src="/static/header/main.js"></script>
+    <script src="/static/modal-page/js/specialtyPopup.js"></script>
+  <script>
+    const headers = document.querySelectorAll('.accordion-header');
+    headers.forEach(header => {
+      header.addEventListener('click', () => {
+        const content = header.nextElementSibling;
+        header.classList.toggle('active');
+        if (content.style.maxHeight) {
+          content.style.maxHeight = null;
+        } else {
+          content.style.maxHeight = content.scrollHeight + "px";
+        }
+      });
+    });
+  </script>
+
+
+<footer class="footer">
+    <div class="footer-container">
+      <!-- О сайте -->
+      <div class="footer-section">
+        <h3 data-translate="about_site">Сайт туралы</h3>
+        <p id="copyright-year"></p>
+        <script>
+          const currentYear = new Date().getFullYear();
+          document.getElementById("copyright-year").textContent = `©1940–${currentYear}`;
+        </script>
+        <p data-translate="college_name">
+          Алматы қаласы Білім басқармасының «ALMATY POLYTECHNIC COLLEGE» КМҚК
+        </p>
+  
+        <h3 data-translate="social_networks">Әлеуметтік желілер</h3>
+        <div class="social-icons">
+          <a href="https://www.instagram.com/polytechalmaty/#" target="_blank" aria-label="Instagram">
+            <img src="/static/images/flot/instagram.png" alt="Instagram" />
+          </a>
+          <a href="https://www.facebook.com/people/..." target="_blank" aria-label="Facebook">
+            <img src="/static/images/flot/facebook.png" alt="Facebook" />
+          </a>
+          <a href="https://www.youtube.com/@almatypolytechedukz" target="_blank" aria-label="YouTube">
+            <img src="/static/images/flot/youtube.png" alt="YouTube" />
+          </a>
+          <a href="https://www.tiktok.com/@polytech_college?_t=8ji5qQRP3v3&_r=1" target="_blank" aria-label="TikTok">
+            <img src="/static/images/flot/tiktok.png" alt="TikTok" />
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-section">
+        <h3 data-translate="contact_label">Байланыс</h3>
+        <p>
+          <span class="icon">📍</span>
+          <strong data-translate="address_label">Мекенжай:</strong><br />
+          <span data-translate="address">Қазақстан, Алматы қ., Тастақ-1 шағын ауданы, 1B</span>
+        </p>
+        <p>
+          <span class="icon">📞</span>
+          <strong data-translate="contact_label">Байланыс:</strong><br />
+          <span data-translate="phone">Тел.: 229 18 32/span><br />
+          <span data-translate="admission_phone">Қабылдау комиссиясы: 8 707 171 0800</span>
+        </p>
+        <p>
+          <span class="icon">✉️</span>
+          <strong data-translate="email_label">Пошта:</strong><br />
+          <a href="mailto:polytech@aspc.kz">polytech@aspc.kz</a>
+        </p>
+      </div>
+  
+      <!-- Разработчики -->
+      <div class="footer-section">
+        <h3 data-translate="developers">Разработчики сайта</h3>
+        <p>
+          <span class="icon">👨‍💻</span>
+          <strong data-translate="developer_name">Жобаны жасаған:</strong><br />
+          <span data-translate="developer_info">Колледж студенттері мен оқытушылары</span>
+        </p>
+        
+        <a href="https://t.me/CollegeSupportBot class="dev-button" data-translate="contact_developer">Связаться с разработчиком</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

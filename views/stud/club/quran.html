@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ВПК «Жас Қыран» | Боевой дух Казахстана</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <style>
+        :root {
+            --neon-blue: #00f7ff;
+            --cyber-purple: #d500f9;
+            --dark-ops: #0a0a0a;
+        }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: var(--dark-ops);
+            color: #ffffff;
+            overflow-x: hidden;
+            position: relative;
+        }
+        #particles-js {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+        /* === Боевое меню === */
+        header {
+            background: rgba(10, 10, 10, 0.9);
+            border-bottom: 1px solid rgba(0, 247, 255, 0.3);
+            padding: 1rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(5px);
+        }
+        .logo {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.8rem;
+            background: linear-gradient(to right, var(--neon-blue), var(--cyber-purple));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 0 10px rgba(0, 247, 255, 0.7);
+            letter-spacing: 2px;
+        }
+        .nav-link {
+            position: relative;
+            padding: 0.5rem 1rem;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--neon-blue);
+            transition: width 0.3s;
+        }
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        /* === Тактическая зона героя === */
+        .hero-section {
+            background: linear-gradient(135deg, rgba(0, 247, 255, 0.2) 0%, rgba(59, 131, 246, 0.2) 50%, rgba(213, 0, 249, 0.2) 100%);
+            background-size: 200% 200%;
+            animation: gradientShift 15s ease infinite;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            position: relative;
+        }
+        .hero-section::before {
+            content: "";
+            background: url('https://cloud.aspc.kz/index.php/s/oBkHTygExtL5jAJ/preview') no-repeat center/cover;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.15;
+            z-index: -1;
+        }
+        .hero-title {
+            font-family: 'Orbitron', sans-serif;
+            text-shadow: 0 0 20px var(--neon-blue), 0 0 40px var(--cyber-purple);
+            letter-spacing: 3px;
+        }
+        /* === Боевые карточки === */
+        .tactical-card {
+            background: rgba(10, 10, 10, 0.85);
+            border: 1px solid rgba(0, 247, 255, 0.3);
+            backdrop-filter: blur(10px);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .tactical-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 0 25px var(--neon-blue), 0 0 50px var(--cyber-purple);
+        }
+        .tactical-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0, 247, 255, 0.1), transparent);
+            transition: 0.6s;
+        }
+        .tactical-card:hover::before {
+            left: 100%;
+        }
+        /* === Анимации === */
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .fade-in {
+            animation: fadeInUp 1s ease-out forwards;
+        }
+        .delay-1 { animation-delay: 0.3s; }
+        .delay-2 { animation-delay: 0.6s; }
+        /* === Карусель операций === */
+        .operation-carousel {
+            border: 1px solid rgba(0, 247, 255, 0.3);
+            box-shadow: 0 0 15px rgba(0, 247, 255, 0.2);
+        }
+        .carousel-item img {
+            border: 2px solid var(--neon-blue);
+            box-shadow: 0 0 15px rgba(0, 247, 255, 0.3);
+        }
+        .carousel-btn {
+            background: rgba(0, 0, 0, 0.5);
+            border: 1px solid var(--neon-blue);
+            transition: all 0.3s;
+        }
+        .carousel-btn:hover {
+            background: rgba(0, 247, 255, 0.2);
+        }
+    </style>
+</head>
+<body>
+    <div id="particles-js"></div>
+    <div id="header-placeholder"></div>
+
+    <script>
+    // Функция для загрузки и инициализации хедера
+    async function loadHeader() {
+        try {
+            // Загружаем HTML хедера
+            const response = await fetch('/views/header.html');
+            const html = await response.text();
+            
+            // Вставляем HTML в страницу
+            document.getElementById('header-placeholder').innerHTML = html;
+            
+            // Загружаем ВСЕ скрипты из хедера
+            await loadScriptsFromHeader(html);
+            
+            // Инициализируем компоненты
+            initComponents();
+            
+        } catch (error) {
+            console.error('Ошибка загрузки хедера:', error);
+        }
+    }
+    
+    // Функция для извлечения и загрузки скриптов из HTML хедера
+    function loadScriptsFromHeader(html) {
+        return new Promise((resolve) => {
+            const scriptTags = html.match(/<script\b[^>]*>([\s\S]*?)<\/script>/gi) || [];
+            let loadedCount = 0;
+            
+            if (scriptTags.length === 0) return resolve();
+    
+            scriptTags.forEach(scriptTag => {
+                const srcMatch = scriptTag.match(/src="([^"]*)"/i);
+                if (srcMatch && srcMatch[1]) {
+                    const script = document.createElement('script');
+                    script.src = srcMatch[1];
+                    script.onload = () => {
+                        loadedCount++;
+                        if (loadedCount === scriptTags.length) resolve();
+                    };
+                    document.body.appendChild(script);
+                } else {
+                    loadedCount++;
+                    if (loadedCount === scriptTags.length) resolve();
+                }
+            });
+        });
+    }
+    
+    // Функция инициализации всех компонентов
+    function initComponents() {
+        // 1. Инициализация даты и времени
+        function initDateTime() {
+            const dateElement = document.getElementById('current-date');
+            const timeElement = document.getElementById('current-time');
+            
+            function updateTime() {
+                const now = new Date();
+                const optionsDate = { year: 'numeric', month: 'long', day: 'numeric' };
+                const optionsTime = { hour: '2-digit', minute: '2-digit', second: '2-digit' };
+                if (dateElement) dateElement.textContent = now.toLocaleDateString('ru-RU', optionsDate).toUpperCase();
+                if (timeElement) timeElement.textContent = now.toLocaleTimeString('ru-RU', optionsTime);
+            }
+    
+            setInterval(updateTime, 1000);
+            updateTime();
+        }
+    
+        // 2. Инициализация IP-адреса
+        function initIPAddress() {
+            const ipElement = document.getElementById('ip-address');
+            if (!ipElement) return;
+            
+            fetch('https://api.ipify.org?format=json')
+                .then(response => response.json())
+                .then(data => {
+                    ipElement.textContent = data.ip;
+                })
+                .catch(() => {
+                    ipElement.textContent = 'Не удалось загрузить IP';
+                });
+        }
+    
+        // 3. Инициализация переключателя языка
+        function initLanguageSwitcher() {
+            const languageSelect = document.getElementById('language-select');
+            if (languageSelect) {
+                languageSelect.addEventListener('change', (event) => {
+                    const selectedLanguage = event.target.value;
+                    console.log('Selected language:', selectedLanguage);
+                    // Логика для смены языка
+                });
+            }
+        }
+    
+        // 4. Инициализация мобильного меню
+        function initMobileMenu() {
+            const menuToggle = document.querySelector('.mobile-menu-toggle');
+            const mobileMenu = document.querySelector('.mobile-menu');
+            const overlay = document.querySelector('.overlay');
+    
+            if (menuToggle && mobileMenu && overlay) {
+                // Обработчик клика по бургер-иконке
+                menuToggle.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    
+                    menuToggle.classList.toggle('active');
+                    mobileMenu.classList.toggle('active');
+                    overlay.classList.toggle('active');
+                    document.body.classList.toggle('no-scroll');
+                });
+    
+                // Обработчик клика по оверлею
+                overlay.addEventListener('click', () => {
+                    menuToggle.classList.remove('active');
+                    mobileMenu.classList.remove('active');
+                    overlay.classList.remove('active');
+                    document.body.classList.remove('no-scroll');
+                });
+    
+                // Обработчик клика по пунктам меню
+                document.querySelectorAll('.mobile-menu a').forEach(link => {
+                    link.addEventListener('click', () => {
+                        menuToggle.classList.remove('active');
+                        mobileMenu.classList.remove('active');
+                        overlay.classList.remove('active');
+                        document.body.classList.remove('no-scroll');
+                    });
+                });
+            }
+        }
+    
+        // 5. Инициализация подменю в мобильной версии
+        function initMobileSubmenus() {
+            document.querySelectorAll('.mobile-menu .dropdown-arrow').forEach(arrow => {
+                arrow.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    
+                    const menuItem = this.closest('.menu-item');
+                    const dropdownMenu = menuItem.querySelector('.dropdown-menu');
+                    
+                    // Закрываем все другие открытые подменю
+                    document.querySelectorAll('.mobile-menu .dropdown-menu').forEach(menu => {
+                        if (menu !== dropdownMenu) {
+                            menu.classList.remove('active');
+                            menu.previousElementSibling.querySelector('.dropdown-arrow').classList.remove('rotated');
+                        }
+                    });
+                    
+                    // Переключаем текущее подменю
+                    dropdownMenu.classList.toggle('active');
+                    this.classList.toggle('rotated');
+                });
+            });
+        }
+    
+        // Вызываем все функции инициализации
+        initDateTime();
+        initIPAddress();
+        initLanguageSwitcher();
+        initMobileMenu();
+        initMobileSubmenus();
+    }
+    
+    // Загружаем хедер при полной загрузке DOM
+    document.addEventListener('DOMContentLoaded', loadHeader);
+    
+    // Добавляем стили для мобильного меню
+    const mobileMenuStyles = `
+        .no-scroll {
+            overflow: hidden;
+        }
+        
+        .mobile-menu-toggle.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+        
+        .mobile-menu-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+        
+        .mobile-menu-toggle.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -6px);
+        }
+        
+        .mobile-menu.active {
+            right: 0;
+            z-index: 9999999999999999;
+        }
+        
+        .overlay.active {
+            display: block;
+        }
+        
+        .dropdown-arrow.rotated {
+            transform: rotate(180deg);
+        }
+        
+        @media (max-width: 992px) {
+            .desktop-menu {
+                display: none;
+            }
+            
+            .mobile-menu-toggle {
+                display: flex;
+            }
+        }
+    `;
+    
+    const styleElement = document.createElement('style');
+    styleElement.textContent = mobileMenuStyles;
+    document.head.appendChild(styleElement);
+    </script>
+
+    <!-- Hero Section -->
+    <section class="hero-section text-white px-4">
+        <div class="container mx-auto text-center">
+            <h1 class="hero-title text-5xl md:text-7xl font-bold mb-6 fade-in">
+                ВПК «Жас Қыран»
+            </h1>
+            <p class="text-xl md:text-3xl font-medium mb-8 fade-in delay-1" style="text-shadow: 0 0 10px var(--cyber-purple);">
+                <span class="text-neon-blue">Воспитание патриотизма и ответственности перед Отечеством </span>
+            </p>
+           
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="container mx-auto py-16 px-4">
+        <!-- Structure Section -->
+        <section class="mb-16">
+          <h2 class="text-4xl font-bold text-center mb-12 section-title">КОМАНДНЫЙ СОСТАВ</h2>
+          <div class="flex flex-col md:flex-row gap-8 items-center justify-center">
+              
+              <!-- Карточка 1 -->
+              <div class="bg-gray-800 rounded-2xl p-8 flex flex-col items-center w-full max-w-sm shadow-lg">
+                  <img src="/static/images/vpk/erlan.jpg" alt="Командир" class="w-50 h-50 object-cover rounded-full mb-6">
+                  <h3 class="text-2xl font-bold text-center" style="font-family: 'Orbitron'; color: var(--neon-blue);">
+                      Нурмуханбетов Ерлан
+                  </h3>
+                  <p class="text-gray-300 text-center mt-2">
+                    Преподователь – организатор НВиТП 
+                    руководитель ВПК «Жас қыран»
+                  </p>
+              </div>
+      
+              <!-- Карточка 2 -->
+              <div class="bg-gray-800 rounded-2xl p-8 flex flex-col items-center w-full max-w-sm shadow-lg">
+                  <img src="/static/images/vpk/ali.jpg" alt="Инструктор" class="w-55 h-55 object-cover rounded-full mb-6">
+                  <h3 class="text-2xl font-bold text-center" style="font-family: 'Orbitron'; color: var(--neon-blue);">
+                      Султанбаев Кайрат
+                  </h3>
+                  <p class="text-gray-300 text-center mt-2">
+                    Преподователь НВиТП 
+                  </p>
+              </div>
+      
+          </div>
+      </section>
+      
+      
+      
+
+        <!-- Gallery Section -->
+     <!-- Gallery Section -->
+     <section class="mb-16">
+      <h2 class="text-4xl font-bold text-center mb-12 section-title">ОПЕРАЦИИ КЛУБА</h2>
+      <div class="operation-carousel rounded-xl overflow-hidden relative max-w-7xl mx-auto">
+          <div class="carousel-container flex transition-transform duration-500 gap-4" id="carouselContainer">
+              <div class="carousel-item flex-shrink-0 w-full md:w-1/3 lg:w-1/4 p-4">
+                  <div class="overflow-hidden rounded-3xl shadow-lg hover:scale-105 transition-transform duration-300">
+                      <img src="/static/images/vpk/q1.jpg" alt="Тренировка" class="w-full h-96 object-cover rounded-3xl">
+                  </div>
+              </div>
+              <div class="carousel-item flex-shrink-0 w-full md:w-1/3 lg:w-1/4 p-4">
+                  <div class="overflow-hidden rounded-3xl shadow-lg hover:scale-105 transition-transform duration-300">
+                      <img src="/static/images/vpk/q2.jpg" alt="Соревнования" class="w-full h-96 object-cover rounded-3xl">
+                  </div>
+              </div>
+              <div class="carousel-item flex-shrink-0 w-full md:w-1/3 lg:w-1/4 p-4">
+                  <div class="overflow-hidden rounded-3xl shadow-lg hover:scale-105 transition-transform duration-300">
+                      <img src="/static/images/vpk/q3.jpg" alt="Поход" class="w-full h-96 object-cover rounded-3xl">
+                  </div>
+              </div>
+              <div class="carousel-item flex-shrink-0 w-full md:w-1/3 lg:w-1/4 p-4">
+                  <div class="overflow-hidden rounded-3xl shadow-lg hover:scale-105 transition-transform duration-300">
+                      <img src="/static/images/vpk/q4.jpg" alt="Поход" class="w-full h-96 object-cover rounded-3xl">
+                  </div>
+              </div>
+              <div class="carousel-item flex-shrink-0 w-full md:w-1/3 lg:w-1/4 p-4">
+                  <div class="overflow-hidden rounded-3xl shadow-lg hover:scale-105 transition-transform duration-300">
+                      <img src="/static/images/vpk/q5.jpg" alt="Поход" class="w-full h-96 object-cover rounded-3xl">
+                  </div>
+              </div>
+          </div>
+          <button class="carousel-btn absolute top-1/2 -translate-y-1/2 left-4 bg-gray-900 text-white rounded-full p-3 shadow-lg" id="prevBtn">❮</button>
+          <button class="carousel-btn absolute top-1/2 -translate-y-1/2 right-4 bg-gray-900 text-white rounded-full p-3 shadow-lg" id="nextBtn">❯</button>
+      </div>
+    </section>
+
+    </main>
+
+    <script>
+        // Конфигурация боевых частиц
+        particlesJS('particles-js', {
+            particles: {
+                number: { value: 100, density: { enable: true, value_area: 800 } },
+                color: { value: ['#00f7ff', '#d500f9'] },
+                shape: { type: 'circle' },
+                opacity: { value: 0.7, random: true },
+                size: { value: 3, random: true },
+                line_linked: {
+                    enable: true,
+                    distance: 150,
+                    color: '#00f7ff',
+                    opacity: 0.4,
+                    width: 1
+                },
+                move: {
+                    enable: true,
+                    speed: 2,
+                    direction: 'none',
+                    random: true,
+                    straight: false,
+                    out_mode: 'out'
+                }
+            },
+            interactivity: {
+                events: {
+                    onhover: { enable: true, mode: 'repulse' },
+                    onclick: { enable: true, mode: 'push' }
+                }
+            }
+        });
+
+        // Система навигации карусели
+        const carousel = document.getElementById('carouselContainer');
+        const items = document.querySelectorAll('.carousel-item');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        let currentIndex = 0;
+        const itemWidth = items[0].clientWidth;
+        const visibleItems = window.innerWidth < 768 ? 1 : window.innerWidth < 1024 ? 2 : 3;
+
+        function updateCarousel() {
+            carousel.style.transform = `translateX(-${currentIndex * itemWidth}px)`;
+        }
+
+        nextBtn.addEventListener('click', () => {
+            if (currentIndex < items.length - visibleItems) {
+                currentIndex++;
+                updateCarousel();
+            }
+        });
+
+        prevBtn.addEventListener('click', () => {
+            if (currentIndex > 0) {
+                currentIndex--;
+                updateCarousel();
+            }
+        });
+
+        window.addEventListener('resize', () => {
+            updateCarousel();
+        });
+    </script>
+
+       <div id="footer-placeholder"></div>
+       <script>
+           fetch('/views/footer.html')
+               .then(response => response.text())
+               .then(data => {
+                   document.getElementById('footer-placeholder').innerHTML = data;
+               });
+       </script>
+</body>
+</html>
