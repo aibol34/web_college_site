@@ -557,13 +557,18 @@ it_hub_regulation_title: "IT HUB - Положение",
 	club_10_text: "«Мир языков» — расширяет знания и личностные возможности через изучение языков: английский (2023–2024), турецкий (2024–2025).",
 	otdelenie_1: "Программное обеспечение и системы информационной безопасности",
 	otdelenie_2: "Программное обеспечение",
+	otdelenie_3: "Платного обучения",
 	nvp: "Преподаватель организатор НВиТП",
 	informatic: "Преподаватель информатики",
 	matem: "Преподаватель математики",
 	Physics:"Преподаватель физики",
 	zav_2: "«Заведующий  отделением «Программное обеспечение»",
 	zav_1: "«Заведующий  отделением «Программное обеспечение и системы информационной безопасности»",
-	educational_work_2022_2023_6: "Положение о Методическом Совете"
+	zav_3: "«Заведующий  отделением «Платного обучения»",
+	educational_work_2022_2023_6: "Положение о Методическом Совете",
+	spes_prepod: "Преподаватель специальных дисциплин",
+	spes_prepod_2: "Преподаватель общеобразовательных дисциплин"
+
 
 
 
@@ -1140,8 +1145,11 @@ it_hub: "IT HUB",
 	Physics: "Physics teacher",
 	zav_2: "Head of the «Software» Department",
 	zav_1: "«Head of the «Software and Information Security Systems Department»",
-	educational_work_2022_2023_6: "Rules of the Methodological Council"
-
+	zav_3: "Head of the Paid Education Department",
+	educational_work_2022_2023_6: "Rules of the Methodological Council",
+	otdelenie_3: "Paid education",
+	spes_prepod: "Special subjects teacher",
+	spes_prepod_2: "Teacher of general education subjects"
 
 
 
@@ -1630,7 +1638,7 @@ it_hub: "IT HUB",
 		Libary: "Кітапхана",
 		pol_jastar: "«POLYTECH JASTARY»",
 		menu_student_clubs: "Студенттік клубтар",
-		qurlym: "Құрлымы",
+		qurlym: "Құрылымы",
 		methodological_recommendations_5: "ӘДІСТЕМЕЛІК НҰСҚАУЛЫҚ ",
 		Board_of_Trustees: "Индустриялдық кеңес",
 		Industrial_Council: "Қамқоршылар кеңесі",
@@ -1712,7 +1720,12 @@ it_hub: "IT HUB",
 		Physics: "Физика  пәні оқытушысы",
 		zav_2: "«Бағдарламалық қамтамасыз ету» бөлімінің меңгерушісі",
 		zav_1: "«Бағдарламалық қамтамасыз ету және ақпараттық қауіпсіздік жүйелері» бөлімінің меңгерушісі",
-		educational_work_2022_2023_6: "Әдістемелік кеңестің ережесі"
+		zav_3: "«Ақылы оқыту бөлімінің меңгерушісі»",
+		educational_work_2022_2023_6: "Әдістемелік кеңестің ережесі",
+		otdelenie_3: "Ақылы оқыту",
+		spes_prepod: "Арнайы пәндер оқытушысы",
+		spes_prepod_2: "Жалпы пәндер оқытушысы"
+
 
 
 
