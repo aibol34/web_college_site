@@ -566,10 +566,14 @@ it_hub_regulation_title: "IT HUB - Положение",
 	zav_1: "«Заведующий  отделением «Программное обеспечение и системы информационной безопасности»",
 	zav_3: "«Заведующий  отделением «Платного обучения»",
 	zav_4: "«Заведующий  отделением «Радиотехника, электроника и телекоммуникации, информационные системы»",
+	zav_5: "Заведующий  отделением «Программное обеспечение и мехатроника»",
 	educational_work_2022_2023_6: "Положение о Методическом Совете",
 	spes_prepod: "Преподаватель специальных дисциплин",
 	spes_prepod_2: "Преподаватель общеобразовательных дисциплин",
 	otdelenie_4: "Радиотехника, электроника и телекоммуникации, информационные системы",
+	otdelenie_5: "Программное обеспечение и мехатроника",
+	spes_prepod_3: "Мастер производственного обучения",
+
 
 
 
@@ -1148,12 +1152,15 @@ it_hub: "IT HUB",
 	zav_2: "Head of the «Software» Department",
 	zav_1: "«Head of the «Software and Information Security Systems Department»",
 	zav_3: "Head of the Paid Education Department",
-	zav_3: "Head of the Department of «Radio Engineering, Electronics and Telecommunications, Information Systems»",
+	zav_4: "Head of the Department of «Radio Engineering, Electronics and Telecommunications, Information Systems»",
+	zav_5: "Head of the Department of «Radio Engineering, Electronics and Telecommunications, Information Systems»",
 	educational_work_2022_2023_6: "Rules of the Methodological Council",
 	otdelenie_3: "Paid education",
 	spes_prepod: "Special subjects teacher",
 	spes_prepod_2: "Teacher of general education subjects",
+	spes_prepod_3: "Industrial-practical master",
 	otdelenie_4: "Radio engineering, electronics and telecommunications, information systems",
+	otdelenie_5: "Software and mechatronics",
 
 
 
@@ -1726,11 +1733,15 @@ it_hub: "IT HUB",
 		zav_1: "«Бағдарламалық қамтамасыз ету және ақпараттық қауіпсіздік жүйелері» бөлімінің меңгерушісі",
 		zav_3: "«Ақылы оқыту бөлімінің меңгерушісі»",
 		zav_4: "«Радиотехника, электроника және телекоммуникациялар мен ақпараттық жүйелер» бөлімінің меңгерушісі",
+		zav_5: "«Бағдарламалы қамтамасыздандыру және мехатроника» бөлімінің меңгерушісі",
 		educational_work_2022_2023_6: "Әдістемелік кеңестің ережесі",
 		otdelenie_3: "Ақылы оқыту",
 		spes_prepod: "Арнайы пәндер оқытушысы",
 		spes_prepod_2: "Жалпы пәндер оқытушысы",
+		spes_prepod_3: "Өндірістік-тәжірибе шебері",
 		otdelenie_4: "Радиотехника, электроника және телекоммуникациялар мен ақпараттық жүйелер",
+		otdelenie_5: "Бағдарламалы қамтамасыздандыру және мехатроника",
+
 
 
 
