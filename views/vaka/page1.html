@@ -711,6 +711,9 @@
   <script>
     const API_URL = 'https://almatypolytech.edu.kz/api/items/vacancy';
 
+	/*kind of solves the 404 error with false routing but idk if it really does*/ 
+	// const API_URL = 'https://almatypolytech.edu.kz/items/vacancy';
+
     async function fetchVacancies() {
       try {
         const grid = document.getElementById('vacancy-grid');
