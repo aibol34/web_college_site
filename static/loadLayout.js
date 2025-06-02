@@ -148,7 +148,13 @@ function initComponents() {
 
 // Run once DOM is ready
 window.addEventListener('DOMContentLoaded', async () => {
-    await loadFragment('/views/header.html', 'header-placeholder', 'cachedHeader');
-    await loadFragment('/views/footer.html', 'footer-placeholder', 'cachedFooter');
-    initComponents();
+    try {
+        await loadFragment('/views/header.html', 'header-placeholder', 'cachedHeader');
+        await loadFragment('/views/footer.html', 'footer-placeholder', 'cachedFooter');
+        initComponents();
+    } catch (e) {
+        console.error('loadLayout.js failed to initialize:', e);
+        document.body.classList.remove('loading'); // prevent infinite "hidden" body
+    }
 });
+

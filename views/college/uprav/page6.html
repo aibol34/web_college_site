@@ -13,6 +13,13 @@
     <link rel="stylesheet" href="/static/header/styles.css">
     <title>Попечительский совет-Қамқоршылар кеңесі</title>
     <style>
+
+        /* CHANGED */
+            /* forcing to load the script buy having an invisible element to be loaded with the content too */
+            body.loading {
+            visibility: hidden;
+            }
+
         .regulations-section {
           background-color: #00000000;
           color: #fff;
@@ -148,13 +155,14 @@
         }
     </style>
 </head>
+
 <body>
     <div id="particle-background"></div>
 
  
     <div id="header-placeholder"></div>
 
-    <script>
+    <!-- <script>
     // Функция для загрузки и инициализации хедера
     async function loadHeader() {
         try {
@@ -367,7 +375,11 @@
     const styleElement = document.createElement('style');
     styleElement.textContent = mobileMenuStyles;
     document.head.appendChild(styleElement);
-    </script>
+    </script> -->
+
+    <!-- CHANGED -->
+    <!-- now trying to load the header and the content all together -->
+     <script src="/static/loadLayout.js"></script>
 
 
 <!----------------------------------------------------------------------------------------------------->
@@ -532,6 +544,52 @@
       document.getElementById('footer-placeholder').innerHTML = data;
     });
 </script>
+
+<!-- CHANGED -->
+        <!-- Unified dom conent loader (does not work no effect) -->
+        <script>
+            document.addEventListener("DOMContentLoaded", async () => {
+            // Load layout first
+            await loadFragment('/views/header.html', 'header-placeholder', 'cachedHeader');
+            await loadFragment('/views/footer.html', 'footer-placeholder', 'cachedFooter');
+
+            // Initialize header dropdown and any custom UI logic
+            initComponents();
+            initDropdownMenus(); // <- this is your custom function from the script you posted
+
+            // Finally, reveal the body
+            document.body.classList.remove('loading');
+        });
+
+        function initDropdownMenus() {
+            const dropdownItems = document.querySelectorAll(".dropdown-item");
+
+            dropdownItems.forEach(item => {
+                const submenu = item.querySelector(".sub-dropdown-menu");
+
+                if (!submenu) return;
+
+                item.addEventListener("mouseenter", () => {
+                    submenu.classList.remove("sub-dropdown-menu-left", "sub-dropdown-menu");
+
+                    submenu.style.visibility = "hidden";
+                    submenu.style.display = "block";
+
+                    const rect = submenu.getBoundingClientRect();
+                    const isOverflowing = rect.right > window.innerWidth;
+
+                    submenu.style.display = "";
+                    submenu.style.visibility = "";
+
+                    if (isOverflowing) {
+                        submenu.classList.add("sub-dropdown-menu-left");
+                    } else {
+                        submenu.classList.add("sub-dropdown-menu");
+                    }
+                });
+            });
+        }
+        </script>
 
 
 </body>
