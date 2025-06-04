@@ -1,0 +1,467 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body, html {
+  height: 100%;
+  font-family: sans-serif;
+}
+
+/* Фоновое изображение */
+.background {
+  position: relative;
+  background-image: url('images/bg.jpg');
+  background-position: center;
+  background-attachment: fixed;
+}
+
+/* Аватар */
+.avatar_wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+
+
+/* Текст поверх */
+.overlay-text {
+  position: absolute;
+  top: 5%;
+  left: 10%;
+  transform: translate(-50%, -50%);
+  color: white;
+  text-align: center;
+  text-shadow: 0 0 10px rgba(0,0,0,0.8);
+}
+
+@font-face {
+  font-family: 'WeddingRegular';
+  src: url('fonts/regular.TTF') format('truetype');
+}
+
+@font-face {
+  font-family: 'WeddingBold';
+  src: url('fonts/Bold.TTF') format('truetype');
+}
+
+@font-face {
+  font-family: 'WeddingBoldItalic';
+  src: url('fonts/Bold Italic.TTF') format('truetype');
+}
+
+@font-face {
+  font-family: 'Kz_school';
+  src: url('fonts/KZ SCHOOLBOOK.TTF') format('truetype');
+}
+
+.name {
+  font-family: 'WeddingBoldItalic', sans-serif;
+  font-size: 72px;
+  padding-right: 100px;
+  color: white;
+  text-shadow: 0 0 30px white;
+}
+
+.teg {
+  font-family: 'WeddingBoldItalic', sans-serif;
+  font-size: 50px;
+  color: white;
+  padding-left: 80px;
+  padding-top: 20px;
+  text-shadow: 0 0 20px white;
+}
+
+.text {
+  padding-top: 20px;
+  color: #905D5C;
+  font-size: 25px;
+  font-family: 'Kz_school', sans-serif;
+  text-align: center;
+}
+
+.text_bold {
+  color: #905D5C;
+  font-size: 50px;
+  font-family: 'WeddingBold', sans-serif;
+  text-align: center;
+}
+
+.text_name {
+  padding-top: 10px;
+  color: #905D5C;
+  font-size: 40px;
+  font-family: 'Kz_school', sans-serif;
+  text-align: center;
+}
+
+.calendar-wrapper {
+  position: relative;
+  display: inline-block;
+  width: 400px;
+  margin: 0 auto;
+}
+
+.calendar {
+  width: 100%;
+  display: block;
+}
+
+.calendar-ring {
+  position: absolute;
+  top: 43.5%;
+  left: 61%;
+  transform: translate(-50%, -50%);
+  width: 40px;
+  z-index: 5;
+}
+
+.map-button {
+  display: block;
+  width: fit-content;
+  margin: 20px auto;
+  padding: 12px 24px;
+  background-color: #00b050;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.map-button:hover {
+  background-color: #00913d;
+}
+
+.timeline {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 10px auto;
+  padding-left: 40px;       
+  position: relative;
+  border-left: 2px dashed #a63d3d;
+  max-width: 600px;        
+  width: 100%;
+}
+
+
+.timeline-item {
+  display: flex;
+  align-items: center;
+  margin: 20px 0;
+  position: relative;
+}
+
+.timeline-icon {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  margin-right: 20px;
+}
+
+.timeline-line {
+  width: 2px;
+  height: 100px;
+  background-color: #a63d3d;
+  position: absolute;
+  margin-top: 40px;
+  left: 40px;
+  top: 40px;
+  z-index: 0;
+}
+
+.timeline-text {
+  z-index: 2;
+  padding-top: 20px;
+  color: #905D5C;
+  font-size: 25px;
+  font-family: 'Kz_school', sans-serif;
+}
+
+.timeline-text .time {
+  font-weight: bold;
+  color: #905D5C;
+}
+
+
+
+
+
+
+.calendar_1 {
+  width: 80%;
+  display: block;
+  margin: 0 auto;
+}
+
+
+
+.form-wrapper {
+  max-width: 480px;
+  margin: 40px auto;
+  padding: 30px 20px;
+  background-color: #fef4f2;
+  border-radius: 10px;
+  text-align: center;
+  font-family: 'Kz_school', sans-serif;
+}
+
+.form-title {
+  font-family: 'WeddingBoldItalic', serif;
+  font-size: 32px;
+  color: #7b2c2c;
+  margin-bottom: 10px;
+}
+
+.form-subtitle {
+  font-size: 18px;
+  margin-bottom: 25px;
+  color: #7b2c2c;
+  line-height: 1.6;
+}
+
+.form-label {
+  display: block;
+  text-align: left;
+  font-weight: bold;
+  margin: 20px 0 10px;
+  color: #905D5C;
+  font-family: 'WeddingBold', serif;
+  font-size: 22px;
+}
+
+.form-input {
+  width: 100%;
+  padding: 12px;
+  font-size: 18px;
+  border: 2px solid #905D5C;
+  border-radius: 10px;
+  font-family: inherit;
+  background: transparent;
+  color: #905D5C;
+}
+
+.form-radio {
+  display: flex;
+  align-items: center;
+  margin: 10px 0;
+  text-align: left;
+  font-size: 22px;
+}
+
+.form-radio input[type="radio"] {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+  accent-color: #905D5C;
+}
+
+.form-radio label {
+  font-size: 24px;
+  color: #905D5C;
+  font-family: 'WeddingRegular', sans-serif;
+}
+
+
+.form-button {
+  margin-top: 25px;
+  background-color: #a63d3d;
+  color: white;
+  border: none;
+  padding: 12px 30px;
+  font-size: 24px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-family: 'WeddingBold', serif;
+  transition: background 0.3s ease;
+}
+
+.form-button:hover {
+  background-color: #8a2b2b;
+}
+
+.form-footer {
+  margin-top: 30px;
+  font-size: 18px;
+  color: #7b2c2c;
+}
+
+
+
+
+
+
+
+
+
+
+
+.countdown-wrapper {
+  text-align: center;
+  padding: 40px 20px;
+  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+              url('images/WhatsApp_Image_2025-.jpeg.webp.png');
+  background-size: cover;
+  background-position: center;
+  color: white;
+}
+
+.countdown-title {
+  font-family: 'WeddingBoldItalic', serif;
+  font-size: 28px;
+  margin-bottom: 30px;
+  text-shadow: 0 0 10px black;
+}
+
+.countdown {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.time-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 60px;
+}
+
+.time-block span {
+  font-size: 48px;
+  font-weight: bold;
+  line-height: 1;
+}
+
+.time-block p {
+  margin-top: 5px;
+  font-size: 16px;
+  letter-spacing: 0.5px;
+}
+
+.colon {
+  font-size: 48px;
+  font-weight: bold;
+  line-height: 1;
+  padding: 0 5px;
+}
+
+
+
+.invite-footer {
+  background-color: #fff5f0;
+  padding: 40px 20px;
+  text-align: center;
+  border-top: 2px dashed #a63d3d;
+  margin-top: 60px;
+}
+
+.invite-text {
+  font-family: 'Kz_school', sans-serif;
+  font-size: 20px;
+  color: #7b2c2c;
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+
+.whatsapp-button {
+  display: inline-block;
+  background-color: #25D366;
+  color: white;
+  padding: 14px 28px;
+  font-size: 18px;
+  font-family: 'WeddingBold', serif;
+  border-radius: 50px;
+  text-decoration: none;
+  transition: background 0.3s ease;
+}
+
+.whatsapp-button:hover {
+  background-color: #1ebf57;
+}
+
+.whatsapp-button i {
+  margin-right: 10px;
+}
+
+
+.calendar_2 {
+  width: 40%;
+  display: block;
+  margin: 0 auto;
+}
+
+
+
+
+/* Чтобы элементы не мигали до загрузки */
+.text, .text_bold, .name, .teg, .calendar_1, .calendar_2, .calendar-ring,
+.timeline-item, .form-wrapper, .countdown-wrapper,
+.invite-footer, .avatar_wrapper, .overlay-text, .map-button,
+.countdown-title {
+  will-change: transform, opacity;
+}
+
+
+.animated-hidden {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 0.8s ease-out;
+}
+
+.animated-show {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+
+.ornament-mask {
+  width: 100px;
+  height: px;
+  overflow: hidden;
+  position: absolute;
+  right: 0;
+  top: 14%;
+  transform: translateY(-50%);
+}
+
+.ornament-rotating {
+  width: 200px;
+  animation: rotateOrnament 20s linear infinite;
+}
+
+@keyframes rotateOrnament {
+  0%   { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+
+
+
+
+
+
+.ornament-mask_2 {
+  width: 100px;
+  overflow: hidden;
+  position: absolute;
+  left: 0;
+  top: 19%;
+  transform: translateY(-50%);
+  transform: scale(-1);
+}
+
+.ornament-rotating_2 {
+  width: 200px;
+  animation: rotateOrnament 20s linear infinite;
+}
+
+@keyframes rotateOrnament {
+  0%   { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
