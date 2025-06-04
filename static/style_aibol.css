@@ -40,22 +40,22 @@ body, html {
 
 @font-face {
   font-family: 'WeddingRegular';
-  src: url('fonts/regular.TTF') format('truetype');
+  src: url('/static/aibol/wedding_1/fonts/regular.TTF') format('truetype');
 }
 
 @font-face {
   font-family: 'WeddingBold';
-  src: url('fonts/Bold.TTF') format('truetype');
+  src: url('/static/aibol/wedding_1/fonts/Bold.TTF') format('truetype');
 }
 
 @font-face {
   font-family: 'WeddingBoldItalic';
-  src: url('fonts/Bold Italic.TTF') format('truetype');
+  src: url('/static/aibol/wedding_1/fonts//Bold Italic.TTF') format('truetype');
 }
 
 @font-face {
   font-family: 'Kz_school';
-  src: url('fonts/KZ SCHOOLBOOK.TTF') format('truetype');
+  src: url('//static/aibol/wedding_1/fonts/KZ SCHOOLBOOK.TTF') format('truetype');
 }
 
 .name {
