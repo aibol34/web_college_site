@@ -11,7 +11,7 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 // ========================== Настройки Directus ==========================
-const DIRECTUS_URL = process.env.DIRECTUS_URL || 'http://localhost:8055';
+const DIRECTUS_URL = process.env.DIRECTUS_URL || 'http://localhost:12392';
 const DIRECTUS_API_KEY = process.env.DIRECTUS_API_KEY || 'NM_dTn_hkRBjZCAXazqaYVdoRBz6qoaL';
 
 // ========================== Логирование ==========================
@@ -20,7 +20,7 @@ app.use(morgan('combined'));
 // ========================== CORS ==========================
 const allowedOrigins = [
     "http://web.aspc.kz",
-    "http://localhost:8055",
+    "http://localhost:12392",
     "http://web.aspc.kz:3000"
 ];
 
