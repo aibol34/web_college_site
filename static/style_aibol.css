@@ -4,19 +4,44 @@
   box-sizing: border-box;
 }
 
-body, html {
+html, body {
+  width: 100%;
   height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  font-family: sans-serif;
+  background-color: #fff;
+}
+
+body, .form-wrapper, .countdown-wrapper, .invite-footer, .timeline {
+  width: 100%;
+  max-width: none;
+  padding-left: 10px;
+  padding-right: 10px;
+  box-sizing: border-box;
+}
+
+
+
+body {
+  width: 100%;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
   font-family: sans-serif;
 }
 
 /* Фоновое изображение */
 .background {
   position: relative;
-  background-image: url('images/bg.jpg');
-  background-position: center;
+  background-image: url('/static/aibol/wedding_1/images/bg.jpg'); /* твой путь */
+  background-size: cover;               /* заполнит весь экран */
+  background-position: center center;
   background-attachment: fixed;
+  min-height: 100vh;                    /* минимум весь экран */
+  width: 100%;
 }
-
 /* Аватар */
 .avatar_wrapper {
   display: flex;
@@ -25,42 +50,36 @@ body, html {
   overflow: hidden;
 }
 
-
-
 /* Текст поверх */
 .overlay-text {
   position: absolute;
-  top: 5%;
-  left: 10%;
+  top: 8%;
+  left: 50%;
   transform: translate(-50%, -50%);
-  color: white;
-  text-align: center;
-  text-shadow: 0 0 10px rgba(0,0,0,0.8);
 }
+
+
 
 @font-face {
   font-family: 'WeddingRegular';
   src: url('/static/aibol/wedding_1/fonts/regular.TTF') format('truetype');
 }
-
 @font-face {
   font-family: 'WeddingBold';
   src: url('/static/aibol/wedding_1/fonts/Bold.TTF') format('truetype');
 }
-
 @font-face {
   font-family: 'WeddingBoldItalic';
-  src: url('/static/aibol/wedding_1/fonts//Bold Italic.TTF') format('truetype');
+  src: url('/static/aibol/wedding_1/fonts/Bold Italic.TTF') format('truetype');
 }
-
 @font-face {
   font-family: 'Kz_school';
-  src: url('//static/aibol/wedding_1/fonts/KZ SCHOOLBOOK.TTF') format('truetype');
+  src: url('/static/aibol/wedding_1/fonts/KZ SCHOOLBOOK.TTF') format('truetype');
 }
 
 .name {
   font-family: 'WeddingBoldItalic', sans-serif;
-  font-size: 72px;
+  font-size: clamp(55px, 10vw, 72px);
   padding-right: 100px;
   color: white;
   text-shadow: 0 0 30px white;
@@ -68,7 +87,7 @@ body, html {
 
 .teg {
   font-family: 'WeddingBoldItalic', sans-serif;
-  font-size: 50px;
+  font-size: clamp(40px, 8vw, 50px);
   color: white;
   padding-left: 80px;
   padding-top: 20px;
@@ -78,14 +97,14 @@ body, html {
 .text {
   padding-top: 20px;
   color: #905D5C;
-  font-size: 25px;
+  font-size: clamp(25px, 5vw, 50px);
   font-family: 'Kz_school', sans-serif;
   text-align: center;
 }
 
 .text_bold {
   color: #905D5C;
-  font-size: 50px;
+  font-size: clamp(28px, 6vw, 50px);
   font-family: 'WeddingBold', sans-serif;
   text-align: center;
 }
@@ -101,7 +120,8 @@ body, html {
 .calendar-wrapper {
   position: relative;
   display: inline-block;
-  width: 400px;
+  width: 100%;
+  max-width: 400px;
   margin: 0 auto;
 }
 
@@ -119,35 +139,56 @@ body, html {
   z-index: 5;
 }
 
+.calendar_1 {
+  width: 100%;
+  display: block;
+}
+
+
+.calendar_2 {
+  width: 100%;
+  max-width: 200px; /* ⬅️ уменьшает реальный размер */
+  display: block;
+  margin: 0 auto;    /* центрирует */
+}
+
+
+.calendar-ring_2 {
+  position: absolute;
+  top: 43.5%;
+  left: 61%;
+  transform: translate(-50%, -50%);
+  width: 40px;
+  z-index: 5;
+}
+
 .map-button {
   display: block;
   width: fit-content;
   margin: 20px auto;
   padding: 12px 24px;
-  background-color: #00b050;
+  background-color: #831b01;
   color: white;
   text-decoration: none;
   border-radius: 8px;
   font-weight: bold;
   transition: background-color 0.3s ease;
 }
-
 .map-button:hover {
   background-color: #00913d;
 }
 
+/* Таймлайн */
 .timeline {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   margin: 10px auto;
-  padding-left: 40px;       
+  padding-left: 40px;
   position: relative;
   border-left: 2px dashed #a63d3d;
-  max-width: 600px;        
   width: 100%;
 }
-
 
 .timeline-item {
   display: flex;
@@ -163,65 +204,24 @@ body, html {
   margin-right: 20px;
 }
 
-.timeline-line {
-  width: 2px;
-  height: 100px;
-  background-color: #a63d3d;
-  position: absolute;
-  margin-top: 40px;
-  left: 40px;
-  top: 40px;
-  z-index: 0;
-}
-
 .timeline-text {
   z-index: 2;
   padding-top: 20px;
   color: #905D5C;
-  font-size: 25px;
+  font-size: clamp(18px, 5vw, 25px);
   font-family: 'Kz_school', sans-serif;
 }
-
 .timeline-text .time {
   font-weight: bold;
-  color: #905D5C;
 }
 
-
-
-
-
-
-.calendar_1 {
-  width: 80%;
-  display: block;
-  margin: 0 auto;
-}
-
-
-
+/* Формы */
 .form-wrapper {
-  max-width: 480px;
-  margin: 40px auto;
-  padding: 30px 20px;
   background-color: #fef4f2;
   border-radius: 10px;
   text-align: center;
   font-family: 'Kz_school', sans-serif;
-}
-
-.form-title {
-  font-family: 'WeddingBoldItalic', serif;
-  font-size: 32px;
-  color: #7b2c2c;
-  margin-bottom: 10px;
-}
-
-.form-subtitle {
-  font-size: 18px;
-  margin-bottom: 25px;
-  color: #7b2c2c;
-  line-height: 1.6;
+  padding: 30px 20px;
 }
 
 .form-label {
@@ -240,7 +240,6 @@ body, html {
   font-size: 18px;
   border: 2px solid #905D5C;
   border-radius: 10px;
-  font-family: inherit;
   background: transparent;
   color: #905D5C;
 }
@@ -249,23 +248,20 @@ body, html {
   display: flex;
   align-items: center;
   margin: 10px 0;
-  text-align: left;
   font-size: 22px;
+  text-align: left;
 }
-
 .form-radio input[type="radio"] {
   width: 20px;
   height: 20px;
   margin-right: 10px;
   accent-color: #905D5C;
 }
-
 .form-radio label {
   font-size: 24px;
   color: #905D5C;
   font-family: 'WeddingRegular', sans-serif;
 }
-
 
 .form-button {
   margin-top: 25px;
@@ -279,30 +275,20 @@ body, html {
   font-family: 'WeddingBold', serif;
   transition: background 0.3s ease;
 }
-
 .form-button:hover {
   background-color: #8a2b2b;
 }
 
-.form-footer {
-  margin-top: 30px;
-  font-size: 18px;
-  color: #7b2c2c;
-}
-
-
-
-
-
-
-
-
-
-
-
 .countdown-wrapper {
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  min-height: 220px; /* гарантированная высота */
   padding: 40px 20px;
+  box-sizing: border-box;
+
   background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
               url('/static/aibol/wedding_1/images/WhatsApp_Image_2025-.jpeg.webp.png');
   background-size: cover;
@@ -312,17 +298,30 @@ body, html {
 
 .countdown-title {
   font-family: 'WeddingBoldItalic', serif;
-  font-size: 28px;
-  margin-bottom: 30px;
+  font-size: clamp(20px, 6vw, 32px); /* адаптивный размер */
+  margin: 0 auto 30px;
+  padding: 10px 15px;
+  line-height: 1.4;
   text-shadow: 0 0 10px black;
+  white-space: normal;         /* ⬅️ разрешить перенос строк */
+  word-break: break-word;      /* ⬅️ если слово длинное — разбить */
+  text-align: center;
+  max-width: 100%;
+  box-sizing: border-box;
 }
+
+
+
+
 
 .countdown {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: flex-end;
+  flex-wrap: nowrap; /* ⛔️ запретить перенос на новую строку */
   gap: 10px;
-  flex-wrap: wrap;
+  max-width: 400px;
+  margin: 0 auto;
 }
 
 .time-block {
@@ -331,28 +330,21 @@ body, html {
   align-items: center;
   min-width: 60px;
 }
-
 .time-block span {
   font-size: 48px;
   font-weight: bold;
-  line-height: 1;
 }
-
 .time-block p {
   margin-top: 5px;
   font-size: 16px;
-  letter-spacing: 0.5px;
 }
-
 .colon {
   font-size: 48px;
   font-weight: bold;
-  line-height: 1;
   padding: 0 5px;
 }
 
-
-
+/* Footer */
 .invite-footer {
   background-color: #fff5f0;
   padding: 40px 20px;
@@ -360,15 +352,12 @@ body, html {
   border-top: 2px dashed #a63d3d;
   margin-top: 60px;
 }
-
 .invite-text {
   font-family: 'Kz_school', sans-serif;
   font-size: 20px;
   color: #7b2c2c;
   margin-bottom: 20px;
-  line-height: 1.6;
 }
-
 .whatsapp-button {
   display: inline-block;
   background-color: #25D366;
@@ -380,88 +369,69 @@ body, html {
   text-decoration: none;
   transition: background 0.3s ease;
 }
-
 .whatsapp-button:hover {
   background-color: #1ebf57;
 }
-
 .whatsapp-button i {
   margin-right: 10px;
 }
 
-
-.calendar_2 {
-  width: 40%;
-  display: block;
-  margin: 0 auto;
-}
-
-
-
-
-/* Чтобы элементы не мигали до загрузки */
-.text, .text_bold, .name, .teg, .calendar_1, .calendar_2, .calendar-ring,
-.timeline-item, .form-wrapper, .countdown-wrapper,
-.invite-footer, .avatar_wrapper, .overlay-text, .map-button,
-.countdown-title {
-  will-change: transform, opacity;
-}
-
-
-.animated-hidden {
-  opacity: 0;
-  transform: translateY(50px);
-  transition: all 0.8s ease-out;
-}
-
-.animated-show {
-  opacity: 1 !important;
-  transform: translateY(0) !important;
-}
-
-
-.ornament-mask {
+/* Орнамент */
+.ornament-mask, .ornament-mask_2 {
   width: 100px;
-  height: px;
   overflow: hidden;
   position: absolute;
-  right: 0;
   top: 14%;
-  transform: translateY(-50%);
 }
-
-.ornament-rotating {
-  width: 200px;
-  animation: rotateOrnament 20s linear infinite;
+.ornament-mask {
+  right: 0;
 }
-
-@keyframes rotateOrnament {
-  0%   { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
-
-
-
-
-
-
-
 .ornament-mask_2 {
-  width: 100px;
-  overflow: hidden;
-  position: absolute;
   left: 0;
-  top: 19%;
-  transform: translateY(-50%);
   transform: scale(-1);
+  top: 19%;
 }
-
-.ornament-rotating_2 {
+.ornament-rotating, .ornament-rotating_2 {
   width: 200px;
   animation: rotateOrnament 20s linear infinite;
 }
-
 @keyframes rotateOrnament {
-  0%   { transform: rotate(0deg); }
+  0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
+}
+
+/* ===== MEDIA QUERIES ===== */
+@media screen and (min-width: 390px) and (max-width: 440px) {
+  .name { font-size: 64px; }
+  .teg { font-size: 44px; }
+  .form-button { font-size: 22px; }
+  .time-block span { font-size: 42px; }
+}
+
+@media screen and (max-width: 360px) {
+  .name { font-size: 48px; }
+  .teg { font-size: 36px; }
+  .text_bold { font-size: 32px; }
+  .form-button { font-size: 20px; padding: 10px 20px; }
+  .calendar-ring { width: 30px; }
+}
+
+@media screen and (min-width: 768px) {
+  .name { font-size: 70px; }
+  .teg { font-size: 50px; }
+  .text_bold { font-size: 48px; }
+}
+
+
+* {
+  box-sizing: border-box;
+}
+
+.text_2 {
+  padding-top: 20px;
+  color: #905D5C;
+  font-size: clamp(10px, 7vw, 80px) !important;
+  font-family: 'Kz_school', sans-serif;
+  text-align: center;
+  line-height: 1.3;
 }
