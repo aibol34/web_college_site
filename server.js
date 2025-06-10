@@ -80,24 +80,6 @@ app.get("/proxy-image", async (req, res) => {
     }
 });
 
-// ========================== API для новостей ==========================
-// app.get('/api/news', async (req, res) => {
-//   try {
-//     const response = await axios.get(`${DIRECTUS_URL}/items/news`, {
-//       params: {
-//         fields: 'id,title,content,date,image.*',
-//         sort: '-date'
-//       },
-//       headers: {
-//         'Authorization': `Bearer ${DIRECTUS_API_KEY}`
-//       }
-//     });
-//     res.json(response.data.data);
-//   } catch (error) {
-//     res.status(500).json({ error: 'Ошибка получения новостей' });
-//   }
-// });
-
 // ========================== API для вакансий ==========================
 app.get('/api/items/vacancy', async (req, res) => {
   try {
@@ -155,6 +137,64 @@ app.delete('/api/items/vacancy/:id', async (req, res) => {
     }
   } catch (error) {
     res.status(500).json({ error: 'Ошибка удаления вакансии' });
+  }
+});
+
+// Путь к файлу с новостями
+const newsFilePath = path.join(__dirname, 'static', 'data', 'news.json');
+
+// Функция для чтения новостей из файла
+function readNews() {
+  try {
+    const data = fs.readFileSync(newsFilePath, 'utf8');
+    return JSON.parse(data);
+  } catch (error) {
+    return [];
+  }
+}
+
+// Функция для записи новостей в файл
+function writeNews(news) {
+  fs.writeFileSync(newsFilePath, JSON.stringify(news, null, 2), 'utf8');
+}
+
+// ========================== API для новостей ==========================
+app.get('/api/items/news', async (req, res) => {
+  try {
+    const news = readNews();
+    res.json(news);
+  } catch (error) {
+    res.status(500).json({ error: 'Ошибка получения новостей' });
+  }
+});
+
+app.post('/api/items/news', async (req, res) => {
+  try {
+    const newNews = req.body;
+    const news = readNews();
+    newNews.id = Date.now().toString();
+    news.push(newNews);
+    writeNews(news);
+    res.status(201).json(newNews);
+  } catch (error) {
+    res.status(500).json({ error: 'Ошибка добавления новости' });
+  }
+});
+
+app.delete('/api/items/news/:id', async (req, res) => {
+  try {
+    const id = req.params.id;
+    const news = readNews();
+    const index = news.findIndex(n => n.id === id);
+    if (index !== -1) {
+      news.splice(index, 1);
+      writeNews(news);
+      res.status(204).send();
+    } else {
+      res.status(404).json({ error: 'Новость не найдена' });
+    }
+  } catch (error) {
+    res.status(500).json({ error: 'Ошибка удаления новости' });
   }
 });
 

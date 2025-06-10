@@ -438,7 +438,7 @@
 }
 
 /* Эффект неона при наведении */
-#news-title:hover {
+/* #news-title:hover {
     color: var(--neon);
     text-shadow:
         0 0 5px var(--neon),
@@ -446,7 +446,7 @@
         0 0 20px var(--neon),
         var(--shadow-purple);
     border-color: var(--neon);
-}
+} */
 
         
             #news-gallery {
@@ -481,7 +481,7 @@
         
             .news-image {
               width: 100%;
-              height: 160px;
+              height: 200px;
               object-fit: cover;
               border-radius: 8px;
               margin: 0.8rem 0;
@@ -495,6 +495,7 @@
               overflow: hidden;
               transition: max-height 0.3s ease;
             }
+            
         
             .news-item.expanded p {
               max-height: 500px;
@@ -545,17 +546,16 @@
             }
           </style>
           
-          
           <script>
             const container = document.getElementById('news-gallery');
         
-            fetch('https://almatypolytech.edu.kz/api/items/news?fields=title,content,date_created,image.id')
+            fetch('/api/items/news')
               .then(res => res.json())
               .then(data => {
-                const newsItems = data.data;
+                const newsItems = data;
         
                 newsItems.forEach(item => {
-                  const { title, content, date_created, image } = item;
+                  const { title, content, date_created, imageURL } = item;
         
                   const wrapper = document.createElement('div');
                   wrapper.className = 'news-item';
@@ -571,8 +571,8 @@
                   img.className = 'news-image';
                   img.loading = 'lazy';
         
-                  if (image && image.id) {
-                    img.src = `https://almatypolytech.edu.kz/api/assets/${image.id}?key=system-large-contain`;
+                  if (imageURL) {
+                    img.src = imageURL;
                   } else {
                     img.src = 'https://via.placeholder.com/400x160?text=ФОТО+ЖОҚ';
                   }

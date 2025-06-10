@@ -1,0 +1,9 @@
+[
+  {
+    "id": "1",
+    "title": "Заголовок новости 1",
+    "content": "Содержание новости 1. Здесь может быть длинный текст, описывающий новость.",
+    "date_created": "2023-10-01T12:00:00Z",
+    "imageURL": "https://womenofrussia.online/upload/iblock/363/96vakce82nnh6rrz80803wx93lzsjaee.jpg"
+  }
+]
