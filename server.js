@@ -11,8 +11,8 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 // ========================== Настройки Directus ==========================
-const DIRECTUS_URL = process.env.DIRECTUS_URL || 'http://localhost:12392';
-const DIRECTUS_API_KEY = process.env.DIRECTUS_API_KEY || 'NM_dTn_hkRBjZCAXazqaYVdoRBz6qoaL';
+// const DIRECTUS_URL = process.env.DIRECTUS_URL || 'http://localhost:12392';
+// const DIRECTUS_API_KEY = process.env.DIRECTUS_API_KEY || 'NM_dTn_hkRBjZCAXazqaYVdoRBz6qoaL';
 
 // ========================== Логирование ==========================
 app.use(morgan('combined'));
@@ -43,25 +43,25 @@ app.get("/", (req, res) => {
 });
 
 // ========================== Прокси для всего Directus ==========================
-app.use('/directus', async (req, res) => {
-    try {
-        const response = await axios({
-            method: req.method,
-            url: `${DIRECTUS_URL}${req.path.replace('/directus', '')}`,
-            headers: {
-                'Authorization': `Bearer ${DIRECTUS_API_KEY}`,
-                'Content-Type': 'application/json'
-            },
-            data: req.body,
-            params: req.query
-        });
-        res.json(response.data);
-    } catch (error) {
-        res.status(error.response?.status || 500).json({
-            error: error.message
-        });
-    }
-});
+// app.use('/directus', async (req, res) => {
+//   try {
+//     const response = await axios({
+//       method: req.method,
+//       url: `${DIRECTUS_URL}${req.path.replace('/directus', '')}`,
+//       headers: {
+//         'Authorization': `Bearer ${DIRECTUS_API_KEY}`,
+//         'Content-Type': 'application/json'
+//       },
+//       data: req.body,
+//       params: req.query
+//     });
+//     res.json(response.data);
+//   } catch (error) {
+//     res.status(error.response?.status || 500).json({
+//       error: error.message
+//     });
+//   }
+// });
 
 // ========================== Прокси изображений ==========================
 app.get("/proxy-image", async (req, res) => {
@@ -81,21 +81,81 @@ app.get("/proxy-image", async (req, res) => {
 });
 
 // ========================== API для новостей ==========================
-app.get('/api/news', async (req, res) => {
-    try {
-        const response = await axios.get(`${DIRECTUS_URL}/items/news`, {
-            params: {
-                fields: 'id,title,content,date,image.*',
-                sort: '-date'
-            },
-            headers: {
-                'Authorization': `Bearer ${DIRECTUS_API_KEY}`
-            }
-        });
-        res.json(response.data.data);
-    } catch (error) {
-        res.status(500).json({ error: 'Ошибка получения новостей' });
+// app.get('/api/news', async (req, res) => {
+//   try {
+//     const response = await axios.get(`${DIRECTUS_URL}/items/news`, {
+//       params: {
+//         fields: 'id,title,content,date,image.*',
+//         sort: '-date'
+//       },
+//       headers: {
+//         'Authorization': `Bearer ${DIRECTUS_API_KEY}`
+//       }
+//     });
+//     res.json(response.data.data);
+//   } catch (error) {
+//     res.status(500).json({ error: 'Ошибка получения новостей' });
+//   }
+// });
+
+// ========================== API для вакансий ==========================
+app.get('/api/items/vacancy', async (req, res) => {
+  try {
+    const vacancies = readVacancies();
+    res.json(vacancies);
+  } catch (error) {
+    res.status(500).json({ error: 'Ошибка получения вакансий' });
+  }
+});
+
+// Путь к файлу с вакансиями
+const vacanciesFilePath = path.join(__dirname, 'static', 'data', 'vacancies.json');
+
+// Функция для чтения вакансий из файла
+function readVacancies() {
+  try {
+    const data = fs.readFileSync(vacanciesFilePath, 'utf8');
+    return JSON.parse(data);
+  } catch (error) {
+    return [];
+  }
+}
+
+// Функция для записи вакансий в файл
+function writeVacancies(vacancies) {
+  fs.writeFileSync(vacanciesFilePath, JSON.stringify(vacancies, null, 2), 'utf8');
+}
+
+// ========================== CRUD для вакансий ==========================
+app.post('/api/items/vacancy', async (req, res) => {
+  try {
+    const newVacancy = req.body;
+    const vacancies = readVacancies();
+    // Добавляем уникальный ID для новой вакансии
+    newVacancy.id = Date.now().toString();
+    vacancies.push(newVacancy);
+    writeVacancies(vacancies);
+    res.status(201).json(newVacancy);
+  } catch (error) {
+    res.status(500).json({ error: 'Ошибка добавления вакансии' });
+  }
+});
+
+app.delete('/api/items/vacancy/:id', async (req, res) => {
+  try {
+    const id = req.params.id;
+    const vacancies = readVacancies();
+    const index = vacancies.findIndex(v => v.id === id);
+    if (index !== -1) {
+      vacancies.splice(index, 1);
+      writeVacancies(vacancies);
+      res.status(204).send();
+    } else {
+      res.status(404).json({ error: 'Вакансия не найдена' });
     }
+  } catch (error) {
+    res.status(500).json({ error: 'Ошибка удаления вакансии' });
+  }
 });
 
 // ========================== Универсальный роутер для всех HTML ==========================
@@ -121,7 +181,6 @@ app.get("/*", (req, res) => {
 // ========================== Запуск сервера ==========================
 app.listen(PORT, "0.0.0.0", () => {
     console.log(`✅ Сервер запущен: http://${getLocalIP()}:${PORT}`);
-    console.log(`Админ-панель Directus: ${DIRECTUS_URL}`);
     console.log(`Доступные домены: ${allowedOrigins.join(', ')}`);
 });
 

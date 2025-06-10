@@ -272,7 +272,7 @@
 			</div>
 		</div>
 	
-		<header>https//almatypolytech.edu.kz/views/stud/obshaga/page1.html
+		<header>
 			<div class="header-container">
 				<div class="logo">
 					<button 
@@ -709,10 +709,7 @@
   </div>
 
   <script>
-    const API_URL = 'https://almatypolytech.edu.kz/api/items/vacancy';
-
-	/*kind of solves the 404 error with false routing but idk if it really does*/ 
-	// const API_URL = 'https://almatypolytech.edu.kz/items/vacancy';
+    const API_URL = '/api/items/vacancy';
 
     async function fetchVacancies() {
       try {
@@ -727,14 +724,14 @@
         
         const data = await res.json();
         
-        if (!data.data || data.data.length === 0) {
+        if (!data || data.length === 0) {
           grid.innerHTML = '<div class="loading">На данный момент вакансий нет. Проверьте позже.</div>';
           return;
         }
         
         grid.innerHTML = '';
         
-        data.data.forEach(vacancy => {
+        data.forEach(vacancy => {
           const card = document.createElement('div');
           card.className = 'card';
 
@@ -744,7 +741,7 @@
             <div class="tags">
               <div class="tag experience">${vacancy.experience}</div>
               <div class="tag schedule">${vacancy.schedule}</div>
-			   <div class="tag expiring_date">${vacancy.expiring_date}</div>
+              <div class="tag expiring_date">${vacancy.expiring_date}</div>
             </div>
             <div class="address">${vacancy.address}</div>
             <a class="btn" href="https://wa.me/77071710800?text=Здравствуйте! Я хочу откликнуться на вакансию '${encodeURIComponent(vacancy.title)}'">
