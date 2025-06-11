@@ -1,0 +1,370 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="_Слой_1" data-name="Слой 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1920 1080">
+  <defs>
+    <style>
+      .cls-1 {
+        letter-spacing: -.02em;
+      }
+
+      .cls-2 {
+        letter-spacing: -.11em;
+      }
+
+      .cls-3 {
+        letter-spacing: .01em;
+      }
+
+      .cls-4 {
+        letter-spacing: .03em;
+      }
+
+      .cls-5 {
+        letter-spacing: .07em;
+      }
+
+      .cls-6 {
+        letter-spacing: .05em;
+      }
+
+      .cls-7 {
+        letter-spacing: 0em;
+      }
+
+      .cls-8 {
+        letter-spacing: .52em;
+      }
+
+      .cls-9 {
+        filter: url(#drop-shadow-1);
+        font-family: FuturaPT-Demi, 'Futura PT';
+        font-size: 60px;
+        font-weight: 300;
+      }
+
+      .cls-9, .cls-10 {
+        fill: aqua;
+      }
+
+      .cls-11 {
+        letter-spacing: 1.99em;
+      }
+
+      .cls-12 {
+        letter-spacing: .04em;
+      }
+
+      .cls-13 {
+        letter-spacing: .05em;
+      }
+
+      .cls-14 {
+        letter-spacing: .02em;
+      }
+
+      .cls-15 {
+        letter-spacing: .02em;
+      }
+
+      .cls-16 {
+        letter-spacing: 1.65em;
+      }
+
+      .cls-17 {
+        letter-spacing: .01em;
+      }
+
+      .cls-18 {
+        letter-spacing: 0em;
+      }
+
+      .cls-19 {
+        letter-spacing: 1.65em;
+      }
+
+      .cls-20 {
+        letter-spacing: .05em;
+      }
+
+      .cls-21 {
+        letter-spacing: -.01em;
+      }
+
+      .cls-22 {
+        letter-spacing: 0em;
+      }
+
+      .cls-23 {
+        letter-spacing: .4em;
+      }
+
+      .cls-24 {
+        letter-spacing: 0em;
+      }
+
+      .cls-25 {
+        letter-spacing: -.04em;
+      }
+
+      .cls-26 {
+        letter-spacing: 0em;
+      }
+
+      .cls-27 {
+        letter-spacing: -.02em;
+      }
+
+      .cls-28 {
+        letter-spacing: 1.99em;
+      }
+
+      .cls-29 {
+        fill: #333;
+      }
+
+      .cls-29, .cls-10 {
+        stroke-width: 0px;
+      }
+
+      .cls-30 {
+        letter-spacing: .23em;
+      }
+
+      .cls-31 {
+        letter-spacing: .02em;
+      }
+
+      .cls-32 {
+        letter-spacing: .49em;
+      }
+
+      .cls-33 {
+        letter-spacing: -.03em;
+      }
+
+      .cls-34 {
+        fill: none;
+        stroke: #fff;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-width: 5px;
+      }
+
+      .cls-35 {
+        letter-spacing: -.08em;
+      }
+
+      .cls-36 {
+        letter-spacing: .52em;
+      }
+
+      .cls-37 {
+        letter-spacing: -.02em;
+      }
+
+      .cls-38 {
+        letter-spacing: -.02em;
+      }
+
+      .cls-39 {
+        letter-spacing: .49em;
+      }
+
+      .cls-40 {
+        letter-spacing: .36em;
+      }
+
+      .cls-41 {
+        letter-spacing: .01em;
+      }
+
+      .cls-42 {
+        letter-spacing: .02em;
+      }
+
+      .cls-43 {
+        letter-spacing: -.01em;
+      }
+
+      .cls-44 {
+        letter-spacing: 1.2em;
+      }
+
+      .cls-45 {
+        letter-spacing: -.02em;
+      }
+
+      .cls-46 {
+        letter-spacing: .23em;
+      }
+
+      .cls-47 {
+        letter-spacing: 0em;
+      }
+
+      .cls-48 {
+        letter-spacing: .68em;
+      }
+
+      .cls-49 {
+        letter-spacing: .36em;
+      }
+
+      .cls-50 {
+        letter-spacing: -.01em;
+      }
+
+      .cls-51 {
+        letter-spacing: .07em;
+      }
+
+      .cls-52 {
+        letter-spacing: -.01em;
+      }
+
+      .cls-53 {
+        letter-spacing: .03em;
+      }
+
+      .cls-54 {
+        letter-spacing: -.02em;
+      }
+
+      .cls-55 {
+        letter-spacing: .34em;
+      }
+
+      .cls-56 {
+        letter-spacing: -.05em;
+      }
+
+      .cls-57 {
+        letter-spacing: -.02em;
+      }
+
+      .cls-58 {
+        letter-spacing: -.05em;
+      }
+
+      .cls-59 {
+        letter-spacing: 1.1em;
+      }
+
+      .cls-60 {
+        letter-spacing: .02em;
+      }
+
+      .cls-61 {
+        letter-spacing: -.03em;
+      }
+
+      .cls-62 {
+        letter-spacing: .4em;
+      }
+
+      .cls-63 {
+        letter-spacing: -.04em;
+      }
+
+      .cls-64 {
+        letter-spacing: -.01em;
+      }
+
+      .cls-65 {
+        letter-spacing: -.09em;
+      }
+
+      .cls-66 {
+        letter-spacing: 0em;
+      }
+
+      .cls-67 {
+        letter-spacing: .98em;
+      }
+
+      .cls-68 {
+        letter-spacing: -.03em;
+      }
+
+      .cls-69 {
+        fill: #fff;
+        font-family: FuturaPT-Medium, 'Futura PT';
+        font-size: 27px;
+        font-weight: 500;
+      }
+
+      .cls-70 {
+        letter-spacing: 0em;
+      }
+
+      .cls-71 {
+        letter-spacing: -.02em;
+      }
+
+      .cls-72 {
+        letter-spacing: .05em;
+      }
+
+      .cls-73 {
+        letter-spacing: -.04em;
+      }
+
+      .cls-74 {
+        letter-spacing: .4em;
+      }
+
+      .cls-75 {
+        letter-spacing: .4em;
+      }
+
+      .cls-76 {
+        letter-spacing: 1.2em;
+      }
+
+      .cls-77 {
+        letter-spacing: .34em;
+      }
+
+      .cls-78 {
+        letter-spacing: .51em;
+      }
+
+      .cls-79 {
+        letter-spacing: .68em;
+      }
+    </style>
+    <filter id="drop-shadow-1" filterUnits="userSpaceOnUse">
+      <feOffset dx="0" dy="0"/>
+      <feGaussianBlur result="blur" stdDeviation="5"/>
+      <feFlood flood-color="#00ffe0" flood-opacity=".75"/>
+      <feComposite in2="blur" operator="in"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <rect class="cls-29" x="5" y="6.5" width="1910" height="1067" rx="17.75" ry="17.75"/>
+  <text class="cls-9" transform="translate(473.8 98.42)"><tspan x="0" y="0">ОӘБ қызметі </tspan><tspan class="cls-14" x="355.31" y="0">т</tspan><tspan class="cls-70" x="379.13" y="0">уралы жалпы ақпарат</tspan></text>
+  <text class="cls-69" transform="translate(996.82 176.39)"><tspan class="cls-59" x="0" y="0">	</tspan><tspan x="36" y="0">«ALM</tspan><tspan class="cls-25" x="101.04" y="0">A</tspan><tspan class="cls-60" x="117.67" y="0">T</tspan><tspan x="129.8" y="0">Y</tspan><tspan class="cls-11" x="144.38" y="0"> </tspan><tspan x="204.4" y="0">PO</tspan><tspan class="cls-61" x="238.69" y="0">L</tspan><tspan class="cls-42" x="248.52" y="0">Y</tspan><tspan x="263.64" y="0">TECHNIC</tspan><tspan class="cls-28" x="366.94" y="0"> </tspan><tspan class="cls-57" x="426.97" y="0">C</tspan><tspan x="443.14" y="0">OLLEGE»</tspan><tspan class="cls-11" x="546.63" y="0"> </tspan><tspan x="606.65" y="0">КМҚК</tspan><tspan class="cls-28" x="677.23" y="0"> </tspan><tspan x="737.26" y="0">жанындағы </tspan><tspan x="0" y="32.4">«Ақпара</tspan><tspan class="cls-53" x="99.65" y="32.4">т</tspan><tspan x="110.21" y="32.4">ты</tspan><tspan class="cls-12" x="135.59" y="32.4">қ</tspan><tspan x="148.82" y="32.4">-</tspan><tspan class="cls-26" x="158" y="32.4">к</tspan><tspan class="cls-18" x="169.66" y="32.4">оммуникациялық</tspan><tspan class="cls-16" x="360.71" y="32.4"> </tspan><tspan class="cls-50" x="411.44" y="32.4">т</tspan><tspan class="cls-71" x="420.86" y="32.4">е</tspan><tspan x="433.31" y="32.4">хнологиялар»</tspan><tspan class="cls-19" x="590.26" y="32.4"> </tspan><tspan x="640.99" y="32.4">бейіні</tspan><tspan class="cls-16" x="707.4" y="32.4"> </tspan><tspan x="758.13" y="32.4">бойынша </tspan><tspan x="0" y="64.8">оқу-әді</tspan><tspan class="cls-66" x="80.89" y="64.8">с</tspan><tspan class="cls-50" x="92.5" y="64.8">т</tspan><tspan x="101.92" y="64.8">емелік бірле</tspan><tspan class="cls-66" x="240.83" y="64.8">с</tspan><tspan x="252.44" y="64.8">тік. </tspan><tspan class="cls-59" x="0" y="129.6">	</tspan><tspan x="36" y="129.6">ҚР</tspan><tspan class="cls-78" x="64.89" y="129.6"> </tspan><tspan x="84.95" y="129.6">Б</tspan><tspan class="cls-56" x="99.15" y="129.6">Ғ</tspan><tspan x="109.31" y="129.6">М</tspan><tspan class="cls-78" x="132.31" y="129.6"> </tspan><tspan x="152.37" y="129.6">2008</tspan><tspan class="cls-78" x="213.72" y="129.6"> </tspan><tspan x="233.78" y="129.6">жылғы</tspan><tspan class="cls-78" x="303.49" y="129.6"> </tspan><tspan x="323.55" y="129.6">3</tspan><tspan class="cls-78" x="338.89" y="129.6"> </tspan><tspan x="358.95" y="129.6">қазандағы</tspan><tspan class="cls-78" x="476.83" y="129.6"> </tspan><tspan x="496.89" y="129.6">№</tspan><tspan class="cls-38" x="525.51" y="129.6">5</tspan><tspan class="cls-33" x="540.23" y="129.6">5</tspan><tspan x="554.62" y="129.6">2</tspan><tspan class="cls-78" x="569.95" y="129.6"> </tspan><tspan x="590.02" y="129.6">бұйрығымен</tspan><tspan class="cls-78" x="726.69" y="129.6"> </tspan><tspan class="cls-43" x="746.75" y="129.6">к</tspan><tspan x="758.41" y="129.6">олледж</tspan><tspan class="cls-26" x="841.08" y="129.6">г</tspan><tspan x="849.67" y="129.6">е </tspan><tspan x="0" y="162">«Инормациялы</tspan><tspan class="cls-12" x="171.8" y="162">қ</tspan><tspan x="185.03" y="162">-</tspan><tspan class="cls-26" x="194.21" y="162">к</tspan><tspan x="205.87" y="162">оммуникациялық</tspan><tspan class="cls-76" x="396.92" y="162"> </tspan><tspan class="cls-64" x="435.58" y="162">т</tspan><tspan class="cls-71" x="445" y="162">е</tspan><tspan x="457.45" y="162">хнологиялар»</tspan><tspan class="cls-76" x="614.39" y="162"> </tspan><tspan x="653.05" y="162">бейіні</tspan><tspan class="cls-44" x="719.47" y="162"> </tspan><tspan x="758.13" y="162">бойынша </tspan><tspan x="0" y="194.4">«Республикалық оқу-әді</tspan><tspan class="cls-66" x="271.88" y="194.4">с</tspan><tspan class="cls-50" x="283.49" y="194.4">т</tspan><tspan x="292.92" y="194.4">емелік бірле</tspan><tspan class="cls-66" x="431.82" y="194.4">с</tspan><tspan x="443.43" y="194.4">тік» мәр</tspan><tspan class="cls-64" x="534.2" y="194.4">т</tspan><tspan x="543.63" y="194.4">ебесі берілді.</tspan><tspan class="cls-59" x="0" y="259.2">	</tspan><tspan x="36" y="259.2">«</tspan><tspan class="cls-25" x="49.69" y="259.2">Т</tspan><tspan class="cls-57" x="60.16" y="259.2">е</tspan><tspan x="72.61" y="259.2">хникалық</tspan><tspan class="cls-48" x="179.8" y="259.2"> </tspan><tspan x="204.56" y="259.2">және</tspan><tspan class="cls-79" x="260.93" y="259.2"> </tspan><tspan x="285.7" y="259.2">кәсіптік,</tspan><tspan class="cls-48" x="377.65" y="259.2"> </tspan><tspan x="402.42" y="259.2">ор</tspan><tspan class="cls-64" x="431.03" y="259.2">т</tspan><tspan x="440.46" y="259.2">а</tspan><tspan class="cls-48" x="454.77" y="259.2"> </tspan><tspan x="479.53" y="259.2">білімнен</tspan><tspan class="cls-79" x="573.86" y="259.2"> </tspan><tspan x="598.62" y="259.2">кейінгі</tspan><tspan class="cls-48" x="671.52" y="259.2"> </tspan><tspan x="696.28" y="259.2">білім</tspan><tspan class="cls-79" x="750.93" y="259.2"> </tspan><tspan x="775.69" y="259.2">бер</tspan><tspan class="cls-54" x="817.32" y="259.2">у</tspan><tspan x="829.79" y="259.2">дің </tspan><tspan x="0" y="291.6">Республикалық</tspan><tspan class="cls-40" x="171.01" y="291.6"> </tspan><tspan x="187.12" y="291.6">оқу-әді</tspan><tspan class="cls-66" x="268.01" y="291.6">с</tspan><tspan class="cls-50" x="279.62" y="291.6">т</tspan><tspan x="289.04" y="291.6">емелік</tspan><tspan class="cls-49" x="361.35" y="291.6"> </tspan><tspan x="377.46" y="291.6">кеңесін,</tspan><tspan class="cls-40" x="468.5" y="291.6"> </tspan><tspan class="cls-64" x="484.61" y="291.6">т</tspan><tspan class="cls-71" x="494.03" y="291.6">е</tspan><tspan x="506.48" y="291.6">хникалық</tspan><tspan class="cls-40" x="613.66" y="291.6"> </tspan><tspan x="629.77" y="291.6">және</tspan><tspan class="cls-49" x="686.15" y="291.6"> </tspan><tspan x="702.25" y="291.6">кәсіптік,</tspan><tspan class="cls-40" x="794.21" y="291.6"> </tspan><tspan x="810.32" y="291.6">ор</tspan><tspan class="cls-50" x="838.94" y="291.6">т</tspan><tspan x="848.37" y="291.6">а </tspan><tspan x="0" y="324">білімнен</tspan><tspan class="cls-8" x="94.33" y="324"> </tspan><tspan x="114.8" y="324">кейінгі</tspan><tspan class="cls-36" x="187.7" y="324"> </tspan><tspan x="208.16" y="324">білім</tspan><tspan class="cls-8" x="262.81" y="324"> </tspan><tspan x="283.27" y="324">бер</tspan><tspan class="cls-54" x="324.9" y="324">у</tspan><tspan x="337.38" y="324">дің</tspan><tspan class="cls-36" x="370.26" y="324"> </tspan><tspan x="390.73" y="324">оқу-әді</tspan><tspan class="cls-17" x="471.62" y="324">с</tspan><tspan class="cls-64" x="483.23" y="324">т</tspan><tspan x="492.65" y="324">емелік</tspan><tspan class="cls-8" x="564.95" y="324"> </tspan><tspan x="585.42" y="324">бірле</tspan><tspan class="cls-66" x="645.73" y="324">с</tspan><tspan x="657.34" y="324">ті</tspan><tspan class="cls-17" x="673.06" y="324">к</tspan><tspan class="cls-64" x="685.26" y="324">т</tspan><tspan x="694.68" y="324">ерін</tspan><tspan class="cls-36" x="741.34" y="324"> </tspan><tspan x="761.8" y="324">бейіндер </tspan><tspan x="0" y="356.4">бойынша</tspan><tspan class="cls-74" x="104.54" y="356.4"> </tspan><tspan x="121.52" y="356.4">құру</tspan><tspan class="cls-75" x="173.03" y="356.4"> </tspan><tspan x="190.01" y="356.4">және</tspan><tspan class="cls-74" x="246.39" y="356.4"> </tspan><tspan x="263.37" y="356.4">олардың</tspan><tspan class="cls-75" x="361.54" y="356.4"> </tspan><tspan x="378.52" y="356.4">қызметі</tspan><tspan class="cls-74" x="462.54" y="356.4"> </tspan><tspan class="cls-42" x="479.51" y="356.4">т</tspan><tspan x="489.77" y="356.4">уралы</tspan><tspan class="cls-75" x="559.76" y="356.4"> </tspan><tspan x="576.74" y="356.4">ережені</tspan><tspan class="cls-74" x="666.26" y="356.4"> </tspan><tspan x="683.24" y="356.4">бекі</tspan><tspan class="cls-15" x="728.49" y="356.4">т</tspan><tspan x="738.75" y="356.4">у</tspan><tspan class="cls-75" x="751.77" y="356.4"> </tspan><tspan class="cls-42" x="768.75" y="356.4">т</tspan><tspan x="779" y="356.4">уралы» </tspan><tspan class="cls-73" x="0" y="388.8">Қ</tspan><tspan x="14.82" y="388.8">азақ</tspan><tspan class="cls-66" x="67.42" y="388.8">с</tspan><tspan class="cls-64" x="79.03" y="388.8">т</tspan><tspan x="88.45" y="388.8">ан</tspan><tspan class="cls-55" x="116.1" y="388.8"> </tspan><tspan x="131.46" y="388.8">Республикасы</tspan><tspan class="cls-55" x="289.03" y="388.8"> </tspan><tspan x="304.39" y="388.8">Білім</tspan><tspan class="cls-55" x="358.93" y="388.8"> </tspan><tspan x="374.29" y="388.8">және</tspan><tspan class="cls-55" x="430.66" y="388.8"> </tspan><tspan x="446.03" y="388.8">ғылым</tspan><tspan class="cls-55" x="514.55" y="388.8"> </tspan><tspan x="529.91" y="388.8">мини</tspan><tspan class="cls-17" x="586.45" y="388.8">с</tspan><tspan x="598.06" y="388.8">трінің</tspan><tspan class="cls-77" x="661.18" y="388.8"> </tspan><tspan x="676.54" y="388.8">2</tspan><tspan class="cls-65" x="691.88" y="388.8">0</tspan><tspan class="cls-2" x="704.87" y="388.8">1</tspan><tspan x="717.18" y="388.8">8</tspan><tspan class="cls-55" x="732.51" y="388.8"> </tspan><tspan x="747.88" y="388.8">жылғы</tspan><tspan class="cls-55" x="817.59" y="388.8"> </tspan><tspan class="cls-33" x="832.95" y="388.8">2</tspan><tspan x="847.34" y="388.8">8 </tspan><tspan x="0" y="421.2">қыркүйе</tspan><tspan class="cls-66" x="92.88" y="421.2">к</tspan><tspan class="cls-50" x="105.08" y="421.2">т</tspan><tspan x="114.5" y="421.2">егі</tspan><tspan class="cls-46" x="142.37" y="421.2"> </tspan><tspan x="154.96" y="421.2">№509</tspan><tspan class="cls-30" x="229.58" y="421.2"> </tspan><tspan x="242.17" y="421.2">бұйрығына</tspan><tspan class="cls-46" x="364.48" y="421.2"> </tspan><tspan x="377.07" y="421.2">сәйкес</tspan><tspan class="cls-46" x="451.64" y="421.2"> </tspan><tspan x="464.23" y="421.2">ОӘБ</tspan><tspan class="cls-30" x="519.95" y="421.2"> </tspan><tspan class="cls-64" x="532.54" y="421.2">т</tspan><tspan x="541.96" y="421.2">өра</tspan><tspan class="cls-26" x="584.89" y="421.2">ғ</tspan><tspan class="cls-18" x="593.48" y="421.2">асы</tspan><tspan class="cls-46" x="634.79" y="421.2"> </tspan><tspan x="647.38" y="421.2">Омарбе</tspan><tspan class="cls-43" x="740.31" y="421.2">к</tspan><tspan x="751.97" y="421.2">ов</tspan><tspan class="cls-30" x="778.21" y="421.2"> </tspan><tspan x="790.8" y="421.2">Медет </tspan><tspan x="0" y="453.6">Асе</tspan><tspan class="cls-64" x="42.07" y="453.6">т</tspan><tspan x="51.49" y="453.6">ович Республикалық оқу-әді</tspan><tspan class="cls-17" x="368.14" y="453.6">с</tspan><tspan class="cls-64" x="379.75" y="453.6">т</tspan><tspan x="389.17" y="453.6">емелік кеңе</tspan><tspan class="cls-66" x="519.49" y="453.6">с</tspan><tspan x="531.1" y="453.6">тің құрамына кіреді.</tspan><tspan class="cls-59" x="0" y="518.4">	</tspan><tspan class="cls-35" x="36" y="518.4">1</tspan><tspan x="49.31" y="518.4">0</tspan><tspan class="cls-39" x="64.65" y="518.4"> </tspan><tspan x="84.11" y="518.4">жылдан</tspan><tspan class="cls-32" x="170.08" y="518.4"> </tspan><tspan x="189.54" y="518.4">а</tspan><tspan class="cls-17" x="203.85" y="518.4">с</tspan><tspan class="cls-64" x="215.46" y="518.4">т</tspan><tspan x="224.89" y="518.4">ам</tspan><tspan class="cls-39" x="254.85" y="518.4"> </tspan><tspan x="274.32" y="518.4">уақыт</tspan><tspan class="cls-32" x="339.12" y="518.4"> </tspan><tspan class="cls-47" x="358.58" y="518.4">бойы</tspan><tspan class="cls-32" x="416.63" y="518.4"> </tspan><tspan x="436.1" y="518.4">ОӘБ</tspan><tspan class="cls-39" x="491.82" y="518.4"> </tspan><tspan x="511.29" y="518.4">үлгілік</tspan><tspan class="cls-32" x="581.54" y="518.4"> </tspan><tspan x="601" y="518.4">оқу</tspan><tspan class="cls-39" x="640.42" y="518.4"> </tspan><tspan x="659.89" y="518.4">жоспарлары</tspan><tspan class="cls-39" x="801.2" y="518.4"> </tspan><tspan x="820.67" y="518.4">мен </tspan><tspan x="0" y="550.8">ба</tspan><tspan class="cls-71" x="28.62" y="550.8">ғ</tspan><tspan class="cls-47" x="36.91" y="550.8">дарламаларын,</tspan><tspan class="cls-24" x="214.56" y="550.8"> </tspan><tspan class="cls-47" x="220.92" y="550.8">білім</tspan><tspan class="cls-7" x="275.56" y="550.8"> </tspan><tspan class="cls-47" x="281.92" y="550.8">беру</tspan><tspan class="cls-24" x="336.56" y="550.8"> </tspan><tspan class="cls-47" x="342.92" y="550.8">ба</tspan><tspan class="cls-57" x="371.54" y="550.8">ғ</tspan><tspan x="379.83" y="550.8">дарламалары</tspan><tspan class="cls-7" x="535.5" y="550.8"> </tspan><tspan x="541.86" y="550.8">мен</tspan><tspan class="cls-24" x="583.87" y="550.8"> </tspan><tspan x="590.22" y="550.8">оқу</tspan><tspan class="cls-7" x="629.64" y="550.8"> </tspan><tspan x="636" y="550.8">құралдарын</tspan><tspan class="cls-24" x="772.24" y="550.8"> </tspan><tspan x="778.59" y="550.8">әзірлеу </tspan><tspan x="0" y="583.2">жөніндегі</tspan><tspan class="cls-20" x="104.81" y="583.2"> </tspan><tspan x="112.5" y="583.2">жұмы</tspan><tspan class="cls-66" x="172.76" y="583.2">с</tspan><tspan x="184.37" y="583.2">ты</tspan><tspan class="cls-20" x="209.75" y="583.2"> </tspan><tspan x="217.43" y="583.2">ж</tspan><tspan class="cls-68" x="234.28" y="583.2">ү</tspan><tspan class="cls-47" x="245.54" y="583.2">зе</tspan><tspan class="cls-43" x="270.43" y="583.2">г</tspan><tspan x="279.02" y="583.2">е</tspan><tspan class="cls-6" x="292.03" y="583.2"> </tspan><tspan x="299.72" y="583.2">асырады,</tspan><tspan class="cls-20" x="407.07" y="583.2"> </tspan><tspan x="414.75" y="583.2">сондай-ақ</tspan><tspan class="cls-20" x="530.53" y="583.2"> </tspan><tspan x="538.21" y="583.2">«</tspan><tspan class="cls-25" x="551.9" y="583.2">Т</tspan><tspan x="562.38" y="583.2">алап»</tspan><tspan class="cls-20" x="630.6" y="583.2"> </tspan><tspan class="cls-26" x="638.29" y="583.2">к</tspan><tspan x="649.95" y="583.2">оммерциялық</tspan><tspan class="cls-20" x="801.96" y="583.2"> </tspan><tspan x="809.64" y="583.2">емес </tspan><tspan x="0" y="615.6">акционерлік</tspan><tspan class="cls-13" x="139.15" y="615.6"> </tspan><tspan class="cls-26" x="146.91" y="615.6">қ</tspan><tspan x="158.74" y="615.6">о</tspan><tspan class="cls-43" x="173.05" y="615.6">ғ</tspan><tspan x="181.63" y="615.6">амымен</tspan><tspan class="cls-72" x="269.27" y="615.6"> </tspan><tspan x="277.03" y="615.6">жасал</tspan><tspan class="cls-26" x="346.53" y="615.6">ғ</tspan><tspan x="355.11" y="615.6">ан</tspan><tspan class="cls-13" x="382.76" y="615.6"> </tspan><tspan x="390.52" y="615.6">шартқа</tspan><tspan class="cls-13" x="474.11" y="615.6"> </tspan><tspan x="481.87" y="615.6">сәйкес</tspan><tspan class="cls-13" x="556.44" y="615.6"> </tspan><tspan class="cls-57" x="564.2" y="615.6">ө</tspan><tspan x="577.94" y="615.6">зе</tspan><tspan class="cls-66" x="602.84" y="615.6">к</tspan><tspan class="cls-64" x="615.04" y="615.6">т</tspan><tspan x="624.46" y="615.6">ендіріл</tspan><tspan class="cls-26" x="702.92" y="615.6">г</tspan><tspan x="711.51" y="615.6">ен</tspan><tspan class="cls-72" x="737.86" y="615.6"> </tspan><tspan x="745.62" y="615.6">білім</tspan><tspan class="cls-13" x="800.26" y="615.6"> </tspan><tspan x="808.02" y="615.6">беру </tspan><tspan x="0" y="648">және</tspan><tspan class="cls-27" x="56.38" y="648"> </tspan><tspan x="62.21" y="648">үлгілік</tspan><tspan class="cls-27" x="132.46" y="648"> </tspan><tspan x="138.29" y="648">оқу</tspan><tspan class="cls-27" x="177.71" y="648"> </tspan><tspan x="183.55" y="648">ба</tspan><tspan class="cls-57" x="212.17" y="648">ғ</tspan><tspan class="cls-18" x="220.45" y="648">дарламалары</tspan><tspan class="cls-37" x="376.13" y="648"> </tspan><tspan class="cls-47" x="381.96" y="648">мен</tspan><tspan class="cls-27" x="423.98" y="648"> </tspan><tspan x="429.81" y="648">жоспарларының</tspan><tspan class="cls-27" x="613.89" y="648"> </tspan><tspan x="619.72" y="648">және</tspan><tspan class="cls-27" x="676.1" y="648"> </tspan><tspan class="cls-18" x="681.93" y="648">рецензиялан</tspan><tspan class="cls-26" x="826.43" y="648">ғ</tspan><tspan x="835.02" y="648">ан </tspan><tspan x="0" y="680.4">оқу құралдарының сарап</tspan><tspan class="cls-64" x="285.17" y="680.4">т</tspan><tspan x="294.59" y="680.4">амалық жұмысын орындайды.</tspan><tspan class="cls-59" x="0" y="745.2">	</tspan><tspan x="36" y="745.2">ОӘБ</tspan><tspan class="cls-62" x="91.73" y="745.2"> </tspan><tspan class="cls-54" x="108.93" y="745.2">Т</tspan><tspan x="119.94" y="745.2">жКБ</tspan><tspan class="cls-23" x="166.81" y="745.2"> </tspan><tspan x="184.01" y="745.2">саласындағы</tspan><tspan class="cls-62" x="328.95" y="745.2"> </tspan><tspan x="346.15" y="745.2">ме</tspan><tspan class="cls-60" x="374.82" y="745.2">м</tspan><tspan x="391.05" y="745.2">леке</tspan><tspan class="cls-53" x="441.7" y="745.2">т</tspan><tspan x="452.25" y="745.2">тік</tspan><tspan class="cls-23" x="479.9" y="745.2"> </tspan><tspan x="497.1" y="745.2">саяса</tspan><tspan class="cls-4" x="559.69" y="745.2">т</tspan><tspan class="cls-47" x="570.24" y="745.2">ты</tspan><tspan class="cls-62" x="595.62" y="745.2"> </tspan><tspan class="cls-47" x="612.82" y="745.2">іске</tspan><tspan class="cls-23" x="655.1" y="745.2"> </tspan><tspan class="cls-18" x="672.3" y="745.2">асыру</tspan><tspan class="cls-62" x="740.93" y="745.2"> </tspan><tspan class="cls-47" x="758.13" y="745.2">бойынша </tspan><tspan x="0" y="777.6">ұсыны</tspan><tspan class="cls-66" x="68.09" y="777.6">с</tspan><tspan class="cls-50" x="79.7" y="777.6">т</tspan><tspan x="89.12" y="777.6">ар</tspan><tspan class="cls-51" x="117.74" y="777.6"> </tspan><tspan x="125.91" y="777.6">мен</tspan><tspan class="cls-51" x="167.92" y="777.6"> </tspan><tspan x="176.09" y="777.6">ұсыны</tspan><tspan class="cls-3" x="244.18" y="777.6">м</tspan><tspan x="260.14" y="777.6">дар</tspan><tspan class="cls-51" x="301.88" y="777.6"> </tspan><tspan x="310.05" y="777.6">дайындау</tspan><tspan class="cls-5" x="420.69" y="777.6"> </tspan><tspan x="428.86" y="777.6">бойынша</tspan><tspan class="cls-51" x="533.4" y="777.6"> </tspan><tspan x="541.57" y="777.6">жұмыс</tspan><tspan class="cls-51" x="613.17" y="777.6"> </tspan><tspan class="cls-50" x="621.34" y="777.6">т</tspan><tspan x="630.76" y="777.6">оп</tspan><tspan class="cls-64" x="658.3" y="777.6">т</tspan><tspan x="667.72" y="777.6">арына</tspan><tspan class="cls-51" x="739.65" y="777.6"> </tspan><tspan x="747.82" y="777.6">қатысады, </tspan><tspan x="0" y="810">тиі</tspan><tspan class="cls-66" x="29.48" y="810">с</tspan><tspan x="41.09" y="810">ті</tspan><tspan class="cls-67" x="56.8" y="810"> </tspan><tspan x="89.55" y="810">бейіндеу</tspan><tspan class="cls-67" x="189.12" y="810"> </tspan><tspan x="221.87" y="810">маманды</tspan><tspan class="cls-17" x="323.92" y="810">қ</tspan><tspan class="cls-64" x="336.29" y="810">т</tspan><tspan x="345.71" y="810">арын</tspan><tspan class="cls-67" x="403.33" y="810"> </tspan><tspan x="436.08" y="810">даярла</tspan><tspan class="cls-54" x="516.1" y="810">у</tspan><tspan x="528.58" y="810">ды</tspan><tspan class="cls-67" x="557.36" y="810"> </tspan><tspan x="590.1" y="810">жүргізетін</tspan><tspan class="cls-67" x="702.15" y="810"> </tspan><tspan class="cls-26" x="734.89" y="810">к</tspan><tspan x="746.56" y="810">оллед</tspan><tspan class="cls-31" x="812.38" y="810">ж</tspan><tspan x="829.79" y="810">дің </tspan><tspan class="cls-26" x="0" y="842.4">к</tspan><tspan x="11.66" y="842.4">онсул</tspan><tspan class="cls-71" x="76.35" y="842.4">ь</tspan><tspan class="cls-64" x="86.59" y="842.4">т</tspan><tspan x="96.01" y="842.4">ациялық </tspan><tspan class="cls-26" x="195.66" y="842.4">к</tspan><tspan x="207.33" y="842.4">өмегі бойынша жұмыс жүргізеді.</tspan></text>
+  <polyline class="cls-34" points="138.43 259.75 138.43 316.23 869 316.23 869 259.75"/>
+  <text class="cls-69" transform="translate(208.5 226.43)"><tspan class="cls-63" x="0" y="0">Т</tspan><tspan class="cls-45" x="10.48" y="0">е</tspan><tspan x="22.92" y="0">хникалық және кәсіптік, ор</tspan><tspan class="cls-64" x="325.94" y="0">т</tspan><tspan x="335.36" y="0">а білімнен кейінгі білім </tspan><tspan x="34.45" y="32.4">бер</tspan><tspan class="cls-1" x="76.08" y="32.4">у</tspan><tspan x="88.56" y="32.4">дің республикалық оқу-әді</tspan><tspan class="cls-66" x="387.28" y="32.4">с</tspan><tspan class="cls-21" x="398.89" y="32.4">т</tspan><tspan x="408.31" y="32.4">емелік кеңесі</tspan><tspan x="202.64" y="64.8" xml:space="preserve">РОӘК  </tspan><tspan class="cls-21" x="285.53" y="64.8">т</tspan><tspan class="cls-22" x="294.95" y="64.8">өра</tspan><tspan class="cls-26" x="337.88" y="64.8">ғ</tspan><tspan x="346.47" y="64.8">асы</tspan></text>
+  <polyline class="cls-34" points="138.43 457.21 138.43 513.69 869 513.69 869 457.21"/>
+  <polyline class="cls-34" points="138.43 674.18 138.43 730.66 869 730.66 869 674.18"/>
+  <text class="cls-69" transform="translate(194.45 451.56)"><tspan x="0" y="0">«Ақпара</tspan><tspan class="cls-53" x="99.66" y="0">т</tspan><tspan x="110.21" y="0">ты</tspan><tspan class="cls-12" x="135.59" y="0">қ</tspan><tspan x="148.82" y="0">-</tspan><tspan class="cls-52" x="158" y="0">к</tspan><tspan x="169.67" y="0">оммуникациялық </tspan><tspan class="cls-64" x="367.01" y="0">т</tspan><tspan class="cls-57" x="376.43" y="0">е</tspan><tspan x="388.88" y="0">хнологиялар» бейіні </tspan><tspan x="28.52" y="32.4">бойынша оқу-әді</tspan><tspan class="cls-41" x="220.25" y="32.4">с</tspan><tspan class="cls-64" x="231.86" y="32.4">т</tspan><tspan x="241.28" y="32.4">емелік бірле</tspan><tspan class="cls-41" x="380.19" y="32.4">с</tspan><tspan x="391.8" y="32.4">тік ОӘБ </tspan><tspan class="cls-64" x="487.76" y="32.4">т</tspan><tspan x="497.18" y="32.4">өра</tspan><tspan class="cls-26" x="540.11" y="32.4">ғ</tspan><tspan x="548.7" y="32.4">асы</tspan></text>
+  <text class="cls-69" transform="translate(241.74 632.2)"><tspan x="0" y="0">ОӘБ </tspan><tspan class="cls-21" x="62.02" y="0">т</tspan><tspan class="cls-22" x="71.44" y="0">өра</tspan><tspan class="cls-26" x="114.37" y="0">ғ</tspan><tspan x="122.96" y="0">асының орынбасары - дире</tspan><tspan class="cls-66" x="431.16" y="0">к</tspan><tspan class="cls-21" x="443.36" y="0">т</tspan><tspan x="452.78" y="0">ордың </tspan><tspan x="104.49" y="32.4">ОӘБ жөніндегі орынбасары</tspan><tspan x="81.97" y="64.8">Орыншайхова </tspan><tspan class="cls-58" x="253.77" y="64.8">Г</tspan><tspan x="263.84" y="64.8">алия Ас</tspan><tspan class="cls-52" x="351.24" y="64.8">х</tspan><tspan x="364.36" y="64.8">а</tspan><tspan class="cls-21" x="378.67" y="64.8">т</tspan><tspan x="388.09" y="64.8">овна</tspan></text>
+  <line class="cls-34" x1="503.72" y1="368.74" x2="503.72" y2="316.23"/>
+  <circle class="cls-10" cx="503.72" cy="385.47" r="7.82"/>
+  <circle class="cls-34" cx="503.72" cy="385.47" r="15.52"/>
+  <line class="cls-34" x1="503.72" y1="566.21" x2="503.72" y2="513.69"/>
+  <circle class="cls-10" cx="503.72" cy="582.94" r="7.82"/>
+  <circle class="cls-34" cx="503.72" cy="582.94" r="15.52"/>
+  <line class="cls-34" x1="227.55" y1="783.17" x2="227.55" y2="730.66"/>
+  <circle class="cls-10" cx="227.55" cy="799.91" r="7.82"/>
+  <circle class="cls-34" cx="227.55" cy="799.91" r="15.52"/>
+  <line class="cls-34" x1="795.41" y1="783.17" x2="795.41" y2="730.66"/>
+  <circle class="cls-10" cx="795.41" cy="799.91" r="7.82"/>
+  <circle class="cls-34" cx="795.41" cy="799.91" r="15.52"/>
+  <line class="cls-34" x1="503.72" y1="882.12" x2="503.72" y2="730.66"/>
+  <circle class="cls-10" cx="503.72" cy="898.85" r="7.82"/>
+  <circle class="cls-34" cx="503.72" cy="898.85" r="15.52"/>
+  <text class="cls-69" transform="translate(182.59 855.53)"><tspan x="0" y="0">Әдіскер</tspan></text>
+  <text class="cls-69" transform="translate(727.21 855.53)"><tspan x="0" y="0">А</tspan><tspan class="cls-1" x="17.71" y="0">у</tspan><tspan x="30.19" y="0">дармашы</tspan></text>
+  <text class="cls-69" transform="translate(460.88 949.52)"><tspan class="cls-63" x="0" y="0">Т</tspan><tspan class="cls-45" x="10.48" y="0">е</tspan><tspan x="22.92" y="0">хни</tspan><tspan class="cls-12" x="63.42" y="0">к</tspan><tspan x="76.49" y="0">-</tspan><tspan x="-42.23" y="32.4">ба</tspan><tspan class="cls-45" x="-13.61" y="32.4">ғ</tspan><tspan x="-5.32" y="32.4">дарламашы</tspan></text>
+</svg>
