@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Психологическая поддержка для студентов</title>
+
+  <link rel="icon" href="/static/images/header/icon_site_logo.svg" type="image/x-icon">
+
+
+  <link rel="stylesheet" href="/static/style.css">
+  <link rel="stylesheet" href="/static/online_assistant.css">
+  <link rel="stylesheet" href="/static/tour_frame_style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+
+  <!-- Подключение библиотеки particles.js -->
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+  <link rel="stylesheet" href="/static/header/styles.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Roboto', Arial, sans-serif;
+            background: #121212;
+            color: #e0f7fa;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        .container {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 40px;
+            background: #1e2a44;
+            border-radius: 20px;
+            box-shadow: 0 0 30px rgba(0, 229, 255, 0.3);
+            text-align: center;
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+        @keyframes glow {
+            from { box-shadow: 0 0 20px rgba(0, 229, 255, 0.3); }
+            to { box-shadow: 0 0 40px rgba(0, 229, 255, 0.5); }
+        }
+        h1 {
+            font-size: 32px;
+            color: #00e5ff;
+            margin-bottom: 20px;
+            text-shadow: 0 0 10px rgba(0, 229, 255, 0.7);
+        }
+        .highlight {
+            color: #ff4081;
+            font-weight: bold;
+            font-size: 20px;
+            text-shadow: 0 0 5px rgba(255, 64, 129, 0.5);
+        }
+        p {
+            font-size: 16px;
+            margin: 15px 0;
+            color: #b2ebf2;
+        }
+        .contact {
+            background: #263659;
+            padding: 20px;
+            border-radius: 15px;
+            margin: 20px 0;
+            box-shadow: 0 0 15px rgba(0, 229, 255, 0.2);
+        }
+        .contact a {
+            color: #26c6da;
+            font-weight: bold;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .contact a:hover {
+            color: #80deea;
+            text-decoration: underline;
+        }
+        .tips, .info {
+            margin-top: 30px;
+            text-align: left;
+        }
+        .tips h2, .info h2 {
+            color: #00e5ff;
+            font-size: 24px;
+            margin-bottom: 15px;
+            text-shadow: 0 0 5px rgba(0, 229, 255, 0.5);
+        }
+        .tips ul, .info ul {
+            list-style: none;
+            padding: 0;
+        }
+        .tips li, .info li {
+            background: #2e3b5e;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            color: #e0f7fa;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .tips li:hover, .info li:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 229, 255, 0.3);
+        }
+        .tips li::before, .info li::before {
+            content: '✨';
+            margin-right: 10px;
+        }
+        .image {
+            width: 100%;
+            max-width: 350px;
+            margin: 20px auto;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(0, 229, 255, 0.4);
+            border: 2px solid #00e5ff;
+        }
+        .quote {
+            font-style: italic;
+            color: #80deea;
+            margin: 20px 0;
+            padding: 15px;
+            background: #263659;
+            border-radius: 10px;
+        }
+        @media (max-width: 600px) {
+            .container {
+                margin: 20px;
+                padding: 20px;
+            }
+            h1 {
+                font-size: 26px;
+            }
+            p, .tips li, .info li {
+                font-size: 14px;
+            }
+            .image {
+                max-width: 280px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="particle-background"></div>
+
+    <div id="header-placeholder"></div>
+
+    <script>
+    // Функция для загрузки и инициализации хедера
+    async function loadHeader() {
+        try {
+            // Загружаем HTML хедера
+            const response = await fetch('/views/header.html');
+            const html = await response.text();
+            
+            // Вставляем HTML в страницу
+            document.getElementById('header-placeholder').innerHTML = html;
+            
+            // Загружаем ВСЕ скрипты из хедера
+            await loadScriptsFromHeader(html);
+            
+            // Инициализируем компоненты
+            initComponents();
+            
+        } catch (error) {
+            console.error('Ошибка загрузки хедера:', error);
+        }
+    }
+    
+    // Функция для извлечения и загрузки скриптов из HTML хедера
+    function loadScriptsFromHeader(html) {
+        return new Promise((resolve) => {
+            const scriptTags = html.match(/<script\b[^>]*>([\s\S]*?)<\/script>/gi) || [];
+            let loadedCount = 0;
+            
+            if (scriptTags.length === 0) return resolve();
+    
+            scriptTags.forEach(scriptTag => {
+                const srcMatch = scriptTag.match(/src="([^"]*)"/i);
+                if (srcMatch && srcMatch[1]) {
+                    const script = document.createElement('script');
+                    script.src = srcMatch[1];
+                    script.onload = () => {
+                        loadedCount++;
+                        if (loadedCount === scriptTags.length) resolve();
+                    };
+                    document.body.appendChild(script);
+                } else {
+                    loadedCount++;
+                    if (loadedCount === scriptTags.length) resolve();
+                }
+            });
+        });
+    }
+    
+    // Функция инициализации всех компонентов
+    function initComponents() {
+        // 1. Инициализация даты и времени
+        function initDateTime() {
+            const dateElement = document.getElementById('current-date');
+            const timeElement = document.getElementById('current-time');
+            
+            function updateTime() {
+                const now = new Date();
+                const optionsDate = { year: 'numeric', month: 'long', day: 'numeric' };
+                const optionsTime = { hour: '2-digit', minute: '2-digit', second: '2-digit' };
+                if (dateElement) dateElement.textContent = now.toLocaleDateString('ru-RU', optionsDate).toUpperCase();
+                if (timeElement) timeElement.textContent = now.toLocaleTimeString('ru-RU', optionsTime);
+            }
+    
+            setInterval(updateTime, 1000);
+            updateTime();
+        }
+    
+        // 2. Инициализация IP-адреса
+        function initIPAddress() {
+            const ipElement = document.getElementById('ip-address');
+            if (!ipElement) return;
+            
+            fetch('https://api.ipify.org?format=json')
+                .then(response => response.json())
+                .then(data => {
+                    ipElement.textContent = data.ip;
+                })
+                .catch(() => {
+                    ipElement.textContent = 'Не удалось загрузить IP';
+                });
+        }
+    
+        // 3. Инициализация переключателя языка
+        function initLanguageSwitcher() {
+            const languageSelect = document.getElementById('language-select');
+            if (languageSelect) {
+                languageSelect.addEventListener('change', (event) => {
+                    const selectedLanguage = event.target.value;
+                    console.log('Selected language:', selectedLanguage);
+                    // Логика для смены языка
+                });
+            }
+        }
+    
+        // 4. Инициализация мобильного меню
+        function initMobileMenu() {
+            const menuToggle = document.querySelector('.mobile-menu-toggle');
+            const mobileMenu = document.querySelector('.mobile-menu');
+            const overlay = document.querySelector('.overlay');
+    
+            if (menuToggle && mobileMenu && overlay) {
+                // Обработчик клика по бургер-иконке
+                menuToggle.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    
+                    menuToggle.classList.toggle('active');
+                    mobileMenu.classList.toggle('active');
+                    overlay.classList.toggle('active');
+                    document.body.classList.toggle('no-scroll');
+                });
+    
+                // Обработчик клика по оверлею
+                overlay.addEventListener('click', () => {
+                    menuToggle.classList.remove('active');
+                    mobileMenu.classList.remove('active');
+                    overlay.classList.remove('active');
+                    document.body.classList.remove('no-scroll');
+                });
+    
+                // Обработчик клика по пунктам меню
+                document.querySelectorAll('.mobile-menu a').forEach(link => {
+                    link.addEventListener('click', () => {
+                        menuToggle.classList.remove('active');
+                        mobileMenu.classList.remove('active');
+                        overlay.classList.remove('active');
+                        document.body.classList.remove('no-scroll');
+                    });
+                });
+            }
+        }
+    
+        // 5. Инициализация подменю в мобильной версии
+        function initMobileSubmenus() {
+            document.querySelectorAll('.mobile-menu .dropdown-arrow').forEach(arrow => {
+                arrow.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    
+                    const menuItem = this.closest('.menu-item');
+                    const dropdownMenu = menuItem.querySelector('.dropdown-menu');
+                    
+                    // Закрываем все другие открытые подменю
+                    document.querySelectorAll('.mobile-menu .dropdown-menu').forEach(menu => {
+                        if (menu !== dropdownMenu) {
+                            menu.classList.remove('active');
+                            menu.previousElementSibling.querySelector('.dropdown-arrow').classList.remove('rotated');
+                        }
+                    });
+                    
+                    // Переключаем текущее подменю
+                    dropdownMenu.classList.toggle('active');
+                    this.classList.toggle('rotated');
+                });
+            });
+        }
+    
+        // Вызываем все функции инициализации
+        initDateTime();
+        initIPAddress();
+        initLanguageSwitcher();
+        initMobileMenu();
+        initMobileSubmenus();
+    }
+    
+    // Загружаем хедер при полной загрузке DOM
+    document.addEventListener('DOMContentLoaded', loadHeader);
+    
+    // Добавляем стили для мобильного меню
+    const mobileMenuStyles = `
+        .no-scroll {
+            overflow: hidden;
+        }
+        
+        .mobile-menu-toggle.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+        
+        .mobile-menu-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+        
+        .mobile-menu-toggle.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -6px);
+        }
+        
+        .mobile-menu.active {
+            right: 0;
+            z-index: 9999999999999999;
+        }
+        
+        .overlay.active {
+            display: block;
+        }
+        
+        .dropdown-arrow.rotated {
+            transform: rotate(180deg);
+        }
+        
+        @media (max-width: 992px) {
+            .desktop-menu {
+                display: none;
+            }
+            
+            .mobile-menu-toggle {
+                display: flex;
+            }
+        }
+    `;
+    
+    const styleElement = document.createElement('style');
+    styleElement.textContent = mobileMenuStyles;
+    document.head.appendChild(styleElement);
+    </script>
+
+
+    <div class="container">
+        <h1>Ты не один: психологическая поддержка для студентов</h1>
+        <p class="highlight">Твое обращение анонимно, конфиденциально и безопасно!</p>
+        <img src="https://www.ias-gruppe.de/fileadmin/_processed_/a/2/csm_260265715_AdobeStock_artinspiring_3ad12220ee.jpeg" alt="Поддержка" class="image">
+        <p>Студенческая жизнь — это не только новые возможности, но и вызовы: стресс, давление, сомнения. Мы здесь, чтобы поддержать тебя на этом пути. Психологическая помощь — это шаг к внутреннему спокойствию и уверенности.</p>
+        <div class="quote">"Иногда самый смелый поступок — это попросить о помощи."</div>
+        
+        <div class="contact">
+            <p>ПСИХОЛОГИ-КОНСУЛЬТАНТЫ СЛУЖБЫ</p>
+            <p>«НАЦИОНАЛЬНАЯ ТЕЛЕФОННАЯ ЛИНИЯ ДОВЕРИЯ ДЛЯ ДЕТЕЙ И МОЛОДЕЖИ №150»</p>
+            <p>Телефон доверия: <span class="highlight">150</span></p>
+         
+        </div>
+
+        <div class="tips">
+            <h2>Почему стоит обратиться к психологу?</h2>
+            <ul>
+                <li>Чувствуешь тревогу или стресс? Психолог поможет разобраться в эмоциях и найти способы их контроля.</li>
+                <li>Проблемы с учебой или друзьями? Консультация даст новый взгляд и практичные решения.</li>
+                <li>Ощущаешь одиночество или апатию? Ты не один, и мы готовы выслушать тебя.</li>
+                <li>Хочешь лучше понять свои цели и желания? Психолог поддержит в поиске себя.</li>
+                <li>Столкнулся с буллингом или конфликтами? Мы поможем найти безопасный выход.</li>
+            </ul>
+        </div>
+
+        <div class="info">
+            <h2>Что нужно знать о психологической помощи?</h2>
+            <ul>
+                <li>Конфиденциальность: Твои слова останутся только между тобой и психологом.</li>
+                <li>Доступность: Позвонить или написать можно в любое время, когда тебе нужна поддержка.</li>
+                <li>Профессионализм: Наши консультанты — квалифицированные специалисты, готовые помочь.</li>
+                <li>Без осуждения: Мы здесь, чтобы понять и поддержать, а не оценивать.</li>
+                <li>Простота: Достаточно одного звонка или сообщения, чтобы начать.</li>
+            </ul>
+        </div>
+    </div>
+    <script>
+        // Плавное появление элементов при прокрутке
+        document.addEventListener('DOMContentLoaded', () => {
+            const elements = document.querySelectorAll('.contact, .tips li, .info li, .quote');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            elements.forEach(el => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(20px)';
+                el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                observer.observe(el);
+            });
+        });
+    </script>
+    
+    <!-- Подключение скриптов -->
+<script src="/static/translations.js"></script>
+<script src="/static/languageSwitcher.js"></script>
+<script src="/static/virtualTour.js"></script>
+<script src="/static/online_assistant.js"></script>
+<script src="/static/script.js"></script>
+<script src="/static/particles_config.js"></script>
+<script src="/static/major-body.js"></script>
+<script src="/static/partners-scroll.js"></script>
+<script src="/static/header/main.js"></script>
+<script src="/static/modal-page/js/specialtyPopup.js"></script>
+
+<footer class="footer">
+    <div class="footer-container">
+      <!-- О сайте -->
+      <div class="footer-section">
+        <h3 data-translate="about_site">Сайт туралы</h3>
+        <p id="copyright-year"></p>
+        <script>
+          const currentYear = new Date().getFullYear();
+          document.getElementById("copyright-year").textContent = `©1940–${currentYear}`;
+        </script>
+        <p data-translate="college_name">
+          Алматы қаласы Білім басқармасының «ALMATY POLYTECHNIC COLLEGE» КМҚК
+        </p>
+  
+        <h3 data-translate="social_networks">Әлеуметтік желілер</h3>
+        <div class="social-icons">
+          <a href="https://www.instagram.com/polytechalmaty/#" target="_blank" aria-label="Instagram">
+            <img src="/static/images/flot/instagram.png" alt="Instagram" />
+          </a>
+          <a href="https://www.facebook.com/people/..." target="_blank" aria-label="Facebook">
+            <img src="/static/images/flot/facebook.png" alt="Facebook" />
+          </a>
+          <a href="https://www.youtube.com/@almatypolytechedukz" target="_blank" aria-label="YouTube">
+            <img src="/static/images/flot/youtube.png" alt="YouTube" />
+          </a>
+          <a href="https://www.tiktok.com/@polytech_college?_t=8ji5qQRP3v3&_r=1" target="_blank" aria-label="TikTok">
+            <img src="/static/images/flot/tiktok.png" alt="TikTok" />
+          </a>
+        </div>
+      </div>
+  
+      <!-- Контакты -->
+      <div class="footer-section">
+        <h3 data-translate="contact_label">Байланыс</h3>
+        <p>
+          <span class="icon">📍</span>
+          <strong data-translate="address_label">Мекенжай:</strong><br />
+          <span data-translate="address">Қазақстан, Алматы қ., Тастақ-1 шағын ауданы, 1B</span>
+        </p>
+        <p>
+          <span class="icon">📞</span>
+          <strong data-translate="contact_label">Байланыс:</strong><br />
+          <span data-translate="phone">Тел.: 396 71 39</span><br />
+          <span data-translate="admission_phone">Қабылдау комиссиясы: 8 707 171 0800</span>
+        </p>
+        <p>
+          <span class="icon">✉️</span>
+          <strong data-translate="email_label">Пошта:</strong><br />
+          <a href="mailto:polytech@aspc.kz">polytech@aspc.kz</a>
+        </p>
+      </div>
+  
+      <!-- Разработчики -->
+      <div class="footer-section">
+        <h3 data-translate="developers">Разработчики сайта</h3>
+        <p>
+          <span class="icon">👨‍💻</span>
+          <strong data-translate="developer_name">Жобаны жасаған:</strong><br />
+          <span data-translate="developer_info">Колледж студенттері мен оқытушылары</span>
+        </p>
+        
+        <a href="https://www.instagram.com/polytech_it_hub?igsh=MXFvd3I1enNxeHpoOA==" class="dev-button" data-translate="contact_developer">Связаться с разработчиком</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
