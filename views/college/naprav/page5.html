@@ -528,8 +528,10 @@
 
   <button class="accordion">3. Нормативтік-құқықтық актілер</button>
   <div class="panel">
-    <button class="pdf-button" onclick="togglePDF(this, '/static/images/pdfs/Онлайн каталог НПА для ТиПО на 10.04.25.pdf')">Нормативтік-құқықтық актілер</button>
-    <div class="iframe-wrapper"></div>
+    <a class="download-btn" href="https://disk.yandex.kz/d/MLmDn_DM7C8C5Q" download>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5 20h14v-2H5v2zm7-18L5.33 11h3.67v4h6v-4h3.67L12 2z"/></svg>
+              <span data-translate="W07140901">3W07140901 Телекоммуникациялық жабдықтар мен байланыс арналарын</span>
+            </a>
   </div>
 
   <button class="accordion">4. ОӘБ жылдық жоспары</button>
@@ -1188,5 +1190,24 @@ function togglePDF(btn, url){
             });
         }
         </script>
+
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const container = document.querySelector('.accordion-container');
+
+  if (container) {
+    container.querySelectorAll('*').forEach(el => {
+      // Только элементы с текстом
+      const hasText = el.childNodes.length === 1 && el.childNodes[0].nodeType === Node.TEXT_NODE;
+      if (hasText || el.tagName === 'BUTTON' || el.tagName === 'A' || el.tagName === 'SPAN' || el.tagName === 'P') {
+        el.style.fontSize = '18px'; // увеличиваем размер
+        el.style.lineHeight = '1.6';
+      }
+    });
+  }
+});
+</script>
+
 </body>
 </html>
