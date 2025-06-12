@@ -534,23 +534,28 @@
   </button>
 
   <div class="sub-buttons" style="display: none; margin-top: 15px;">
-    <button class="pdf-button" onclick="togglePDF(this, '/static/images/pdfs/region1.pdf')">
-      Алматы облысы
+    <button class="pdf-button" onclick="togglePDF(this, '/static/images/pdfs/ВТиИС.pdf')">
+      06120100 Есептеу техникасы және ақпараттық желілер(түрлері бойынша)
     </button>
     <div class="iframe-wrapper"></div>
 
-    <button class="pdf-button" onclick="togglePDF(this, '/static/images/pdfs/region2.pdf')">
-      Астана қаласы
+    <button class="pdf-button" onclick="togglePDF(this, '/static/images/pdfs/РЭТ.pdf')">
+      07140900 Радиотехника, электроника және телекоммуникациялар
     </button>
     <div class="iframe-wrapper"></div>
 
-    <button class="pdf-button" onclick="togglePDF(this, '/static/images/pdfs/region3.pdf')">
-      Қарағанды облысы
+    <button class="pdf-button" onclick="togglePDF(this, '/static/images/pdfs/Операторское искусство.pdf')">
+      02110100 Операторлық өнер
     </button>
     <div class="iframe-wrapper"></div>
   </div>
   </div>
-
+<script>
+   function showSubButtons(button) {
+    const wrapper = button.parentElement.querySelector('.sub-buttons');
+    wrapper.style.display = wrapper.style.display === 'none' ? 'block' : 'none';
+  }
+</script>
 
 
 
