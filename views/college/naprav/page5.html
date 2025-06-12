@@ -721,7 +721,7 @@
 
   <button class="accordion">Кәсіби стандарттар</button>
   <div class="panel">
-    <button class="pdf-button" onclick="togglePDF(this, 'pdfs/пс.pdf')">Кәсіби стандарттар</button>
+    <button class="pdf-button" onclick="togglePDF(this, '/static/images/pdfs/пс.pdf')">Кәсіби стандарттар</button>
     <div class="iframe-wrapper"></div>
   </div>
 <div>
@@ -805,9 +805,10 @@
           color: #cdeeff;
         }
 
-        .download-btn {
+.download-btn {
   display: inline-flex;
   align-items: center;
+  justify-content: flex-start;
   background-color: #33ccff;
   color: #000;
   padding: 10px 15px;
@@ -819,8 +820,10 @@
   transition: background-color 0.3s;
   font-size: 14px;
 
-  max-width: 100%; /* или задай фиксированную ширину, например 400px */
+  width: 100%;        /* кнопка на всю ширину контейнера */
+  max-width: 1200px;  /* ограничим максимальную ширину */
   overflow: hidden;
+  box-sizing: border-box;
 }
 
 .download-btn:hover {
@@ -835,14 +838,14 @@
   flex-shrink: 0;
 }
 
-/* ВАЖНО: стиль для текста внутри кнопки */
 .download-btn span {
   display: inline-block;
-  max-width: 1100px; /* или сколько тебе нужно */
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
+  flex-grow: 1;
 }
+
 
         /* Адаптивность */
         @media (max-width: 600px) {
@@ -1215,12 +1218,81 @@ function togglePDF(btn, url){
 
   <button class="accordion">Байланыс ақпараты</button>
   <div class="panel">
-    <button class="pdf-button" onclick="togglePDF(this, 'pdfs/2025_doc1.pdf')">План 1 (2025)</button>
-    <div class="iframe-wrapper"></div>
+<style>
+    .g_wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 40px;
+      padding: 50px 20px;
+      border-radius: 15px;
+      max-width: 1200px;
+      margin: 40px auto;
+      box-shadow: 0 0 20px rgba(0, 255, 255, 0.1);
+      flex-wrap: wrap;
+    }
 
-    <button class="pdf-button" onclick="togglePDF(this, 'pdfs/2025_doc2.pdf')">План 2 (2025)</button>
-    <div class="iframe-wrapper"></div>
+    .person-block {
+      text-align: center;
+      width: 220px;
+    }
+
+    .person-block img {
+      width: 200px;
+      height: 200px;
+      object-fit: cover;
+      border: 4px solid #00ffff;
+      border-radius: 10px;
+      margin-bottom: 10px;
+    }
+
+    .person-block p {
+      font-size: 16px;
+      color: #00ffff;
+      font-weight: bold;
+      line-height: 1.4;
+    }
+
+    .qr-join {
+      text-align: center;
+    }
+
+    .qr-join img {
+      width: 200px;
+      height: 250px;
+      object-fit: contain;
+      border: 4px solid #00ffff;
+      border-radius: 10px;
+      margin-bottom: 10px;
+    }
+
+    .qr-join p {
+      font-size: 16px;
+      color: #00ffff;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+<div class="g_wrapper">
+
+  <div class="person-block">
+    <img src="/static/images/4096-2731-max.jpg" alt="Омарбеков Медет Асетович">
+    <p>ОӘБ төрағасы:<br>Омарбеков Медет Асетович</p>
   </div>
+
+  <div class="person-block">
+    <img src="/static/images/16.jpeg" alt="Орыншайхова Галия Асхатовна">
+    <p>ОӘБ төрағасының орынбасары:<br>Орыншайхова Галия Асхатовна<br>тел: +7 771 420 90 17</p>
+  </div>
+
+  <div class="person-block">
+    <img src="/static/images/qr-code (3).png" alt="QR-код WhatsApp чата">
+    <p>ОӘБ чатына қосылу</p>
+  </div>
+
+</div>
 
 </div>
 
