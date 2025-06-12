@@ -402,10 +402,11 @@
     .accordion-container {
       background-color: #1c1c1c;
       border-radius: 10px;
-      padding: 15px;
       box-shadow: 0 0 10px rgba(0, 255, 255, 0.1);
       max-width: 800px;
       margin: auto;
+      margin-top: 20px;
+      margin-bottom: 20px;
     }
 
     .accordion {
@@ -533,19 +534,16 @@
 
   <button class="accordion">4. ОӘБ жылдық жоспары</button>
   <div class="panel">
-    <button class="pdf-button" onclick="togglePDF(this, '/static/images/pdfs/план_2023.pdf')">2023</button>
+    <button class="pdf-button" onclick="togglePDF(this, '/static/images/pdfs/план_2023.pdf')">2023-2024 оқу жылы</button>
     <div class="iframe-wrapper"></div>
 
-    <button class="pdf-button" onclick="togglePDF(this, '/static/images/pdfs/план_2024.pdf')">2024</button>
+    <button class="pdf-button" onclick="togglePDF(this, '/static/images/pdfs/план_2024.pdf')">2024-2025 оқу жылы</button>
     <div class="iframe-wrapper"></div>
   </div>
 
   <button class="accordion">5. Кәсіби стандарттар</button>
   <div class="panel">
-    <button class="pdf-button" onclick="togglePDF(this, 'pdfs/2025_doc1.pdf')">План 1 (2025)</button>
-    <div class="iframe-wrapper"></div>
-
-    <button class="pdf-button" onclick="togglePDF(this, 'pdfs/2025_doc2.pdf')">План 2 (2025)</button>
+    <button class="pdf-button" onclick="togglePDF(this, 'pdfs/пс.pdf')">Кәсіби стандарттар</button>
     <div class="iframe-wrapper"></div>
   </div>
 <div>
