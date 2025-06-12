@@ -111,29 +111,32 @@
 				color: #cdeeff;
 			}
 
-			.download-btn {
-				display: inline-flex;
-				align-items: center;
-				background-color: #33ccff;
-				color: #000;
-				padding: 10px 15px;
-				margin: 10px 0 20px;
-				border: none;
-				border-radius: 6px;
-				text-decoration: none;
-				font-weight: bold;
-				transition: background-color 0.3s;
-				font-size: 14px;
-			}
+.download-btn {
+  display: inline-flex;
+  align-items: center;
+  background-color: #33ccff;
+  color: #000;
+  padding: 8px 12px;
+  margin: 10px 0 20px;
+  border-radius: 6px;
+  font-weight: bold;
+  font-size: 14px;
+  text-decoration: none;
+  transition: background-color 0.3s;
 
+  /* Новое: ограничение ширины */
+  max-width: 100%;
+  width: fit-content;
+  overflow: hidden;
+}
 			.download-btn:hover {
 				background-color: #00aaff;
 			}
 
 			.download-btn svg {
-				margin-right: 8px;
-				width: 18px;
-				height: 18px;
+				margin-right: px;
+				width: 2px;
+				height: 5px;
 				fill: currentColor;
 			}
 
@@ -529,10 +532,182 @@
   <button class="accordion">Нормативтік-құқықтық актілер</button>
   <div class="panel">
     
-    <a class="download-btn" target="_blank" href="https://adilet.zan.kz/kaz/docs/K24002024_1" download>
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5 20h14v-2H5v2zm7-18L5.33 11h3.67v4h6v-4h3.67L12 2z"/></svg>
-              <span>Әділетті Қазақстан: заң мен тәртіп, экономикалық өсім, қоғамдық оптимизм»  Мемлекет басшысы Қасым-Жомарт Тоқаевтың 2024 жылғы 2 қыркүйектегі Қазақстан халқына Жолдауы</span>
+      <a class="download-btn" target="_blank" 
+        href="https://adilet.zan.kz/kaz/docs/K24002024_1" 
+        download
+        data-fulltext="Әділетті Қазақстан: заң мен тәртіп, экономикалық өсім, қоғамдық оптимизм» Мемлекет басшысы Қасым-Жомарт Тоқаевтың 2024 жылғы 2 қыркүйектегі Қазақстан халқына Жолдауы">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path d="M5 20h14v-2H5v2zm7-18L5.33 11h3.67v4h6v-4h3.67L12 2z"/>
+        </svg>
+        <span>1. «Әділетті Қазақстан: заң мен тәртіп, экономикалық өсім, қоғамдық оптимизм»  Мемлекет басшысы Қасым-Жомарт Тоқаевтың 2024 жылғы 2 қыркүйектегі Қазақстан халқына Жолдауы</span>
       </a>
+
+
+
+
+
+      <a class="download-btn" target="_blank" 
+        href="https://adilet.zan.kz/kaz/docs/Z070000319_" 
+        download
+        data-fulltext="2.	«Білім туралы» Қазақстан Республикасының 2007 жылғы 27 шілдедегі № 319 Заңы">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path d="M5 20h14v-2H5v2zm7-18L5.33 11h3.67v4h6v-4h3.67L12 2z"/>
+        </svg>
+        <span>2. «Білім туралы» Қазақстан Республикасының 2007 жылғы 27 шілдедегі № 319 Заңы</span>
+      </a>
+
+
+
+
+
+      <a class="download-btn" target="_blank" 
+        href="https://adilet.zan.kz/kaz/docs/Z1900000293" 
+        download
+        data-fulltext="3.	 «Педагог мәртебесі туралы» Қазақстан Республикасының 2019 жылғы 27 желтоқсандағы № 293-VІ ҚРЗ Заңы ">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path d="M5 20h14v-2H5v2zm7-18L5.33 11h3.67v4h6v-4h3.67L12 2z"/>
+        </svg>
+        <span>3. «Педагог мәртебесі туралы» Қазақстан Республикасының 2019 жылғы 27 желтоқсандағы № 293-VІ ҚРЗ Заңы </span>
+      </a>
+
+
+
+      <a class="download-btn" target="_blank" 
+        href="https://adilet.zan.kz/kaz/docs/Z2300000014" 
+        download
+        data-fulltext="4. «Кәсіптік біліктілік туралы» Қазақстан Республикасының 2023 жылғы 4 шiлдедегi № 14-VIII ҚРЗ Заңы">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path d="M5 20h14v-2H5v2zm7-18L5.33 11h3.67v4h6v-4h3.67L12 2z"/>
+        </svg>
+        <span>4. «Кәсіптік біліктілік туралы» Қазақстан Республикасының 2023 жылғы 4 шiлдедегi № 14-VIII ҚРЗ Заңы</span>
+      </a>
+      
+
+      <a class="download-btn" target="_blank" 
+        href="https://adilet.zan.kz/kaz/docs/V2200029031" 
+        download
+        data-fulltext="5. «Мектепке дейінгі тәрбие мен оқытудың, бастауыш, негізгі орта, жалпы орта, техникалық және кәсіптік, орта білімнен кейінгі білім берудің мемлекеттік жалпыға міндетті стандарттарын бекіту туралы» Қазақстан Республикасы Оқу-ағарту министрінің 2022 жылғы 3 тамыздағы № 348 бұйрығы">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path d="M5 20h14v-2H5v2zm7-18L5.33 11h3.67v4h6v-4h3.67L12 2z"/>
+        </svg>
+        <span>5. «Мектепке дейінгі тәрбие мен оқытудың, бастауыш, негізгі орта, жалпы орта, техникалық және кәсіптік, орта білімнен кейінгі білім берудің мемлекеттік жалпыға міндетті стандарттарын бекіту туралы» Қазақстан Республикасы Оқу-ағарту министрінің 2022 жылғы 3 тамыздағы № 348 бұйрығы</span>
+      </a>
+
+
+
+
+      <a class="download-btn" target="_blank" 
+        href="https://adilet.zan.kz/kaz/docs/V2200030099" 
+        download
+        data-fulltext="6. «Техникалық және кәсіптік, орта білімнен кейінгі білім беру ұйымдары іске асыратын білім беру бағдарламаларының тізілімін жүргізу қағидалары, сондай-ақ білім беру бағдарламаларының тізіліміне енгізу және алып тастау негіздерін бекіту туралы» Қазақстан Республикасы Оқу-ағарту министрінің м.а. 2022 жылғы 7 қазандағы № 417 бұйрығы">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path d="M5 20h14v-2H5v2zm7-18L5.33 11h3.67v4h6v-4h3.67L12 2z"/>
+        </svg>
+        <span>6. «Техникалық және кәсіптік, орта білімнен кейінгі білім беру ұйымдары іске асыратын білім беру бағдарламаларының тізілімін жүргізу қағидалары, сондай-ақ білім беру бағдарламаларының тізіліміне енгізу және алып тастау негіздерін бекіту туралы» Қазақстан Республикасы Оқу-ағарту министрінің м.а. 2022 жылғы 7 қазандағы № 417 бұйрығы</span>
+      </a>
+
+
+
+
+      <a class="download-btn" target="_blank" 
+        href="https://adilet.zan.kz/kaz/docs/V2300031666" 
+        download
+        data-fulltext="7. «Техникалық және кәсіптік білім беру ұйымдары үшін жалпы білім беретін пәндер циклінің немесе модулінің үлгілік оқу бағдарламаларын бекіту туралы» Қазақстан Республикасы Оқу-ағарту министрінің 2023 жылғы 6 қаңтардағы № 1 бұйрығы">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path d="M5 20h14v-2H5v2zm7-18L5.33 11h3.67v4h6v-4h3.67L12 2z"/>
+        </svg>
+        <span>7. «Техникалық және кәсіптік білім беру ұйымдары үшін жалпы білім беретін пәндер циклінің немесе модулінің үлгілік оқу бағдарламаларын бекіту туралы» Қазақстан Республикасы Оқу-ағарту министрінің 2023 жылғы 6 қаңтардағы № 1 бұйрығы</span>
+      </a>
+
+
+
+
+
+      <a class="download-btn" target="_blank" 
+        href="https://adilet.zan.kz/kaz/docs/V080005191_" 
+        download
+        data-fulltext="9. «Орта, техникалық және кәсіптік, орта білімнен кейінгі білім беру ұйымдары үшін білім алушылардың үлгеріміне ағымдағы бақылауды, оларды аралық және қорытынды аттестаттауды өткізудің үлгілік қағидаларын бекіту туралы» Қазақстан Республикасы Білім және ғылым министрінің 2008 жылғы 18 наурыздағы N 125 Бұйрығы">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path d="M5 20h14v-2H5v2zm7-18L5.33 11h3.67v4h6v-4h3.67L12 2z"/>
+        </svg>
+        <span>9. «Орта, техникалық және кәсіптік, орта білімнен кейінгі білім беру ұйымдары үшін білім алушылардың үлгеріміне ағымдағы бақылауды, оларды аралық және қорытынды аттестаттауды өткізудің үлгілік қағидаларын бекіту туралы» Қазақстан Республикасы Білім және ғылым министрінің 2008 жылғы 18 наурыздағы N 125 Бұйрығы</span>
+      </a>
+
+
+
+
+
+      <a class="download-btn" target="_blank" 
+        href="https://adilet.zan.kz/kaz/docs/V1600013137" 
+        download
+        data-fulltext="10. «Орта, техникалық және кәсіптік, орта білімнен кейінгі білім алушылардың білімін бағалау өлшемшарттарын бекіту туралы» Қазақстан Республикасы Білім және ғылым министрінің 2016 жылғы 21 қаңтардағы № 52 бұйрығы">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path d="M5 20h14v-2H5v2zm7-18L5.33 11h3.67v4h6v-4h3.67L12 2z"/>
+        </svg>
+        <span>10. «Орта, техникалық және кәсіптік, орта білімнен кейінгі білім алушылардың білімін бағалау өлшемшарттарын бекіту туралы» Қазақстан Республикасы Білім және ғылым министрінің 2016 жылғы 21 қаңтардағы № 52 бұйрығы</span>
+      </a>
+
+
+
+
+
+
+      <a class="download-btn" target="_blank" 
+        href="https://adilet.zan.kz/kaz/docs/V1800017564" 
+        download
+        data-fulltext="11.	«Техникалық және кәсіптік, орта білімнен кейінгі білімнің мамандықтары мен біліктіліктерінің сыныптауышын бекіту туралы» Қазақстан Республикасы Білім және ғылым министрінің 2018 жылғы 27 қыркүйектегі № 500 бұйрығы">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path d="M5 20h14v-2H5v2zm7-18L5.33 11h3.67v4h6v-4h3.67L12 2z"/>
+        </svg>
+        <span>11.	«Техникалық және кәсіптік, орта білімнен кейінгі білімнің мамандықтары мен біліктіліктерінің сыныптауышын бекіту туралы» Қазақстан Республикасы Білім және ғылым министрінің 2018 жылғы 27 қыркүйектегі № 500 бұйрығы</span>
+      </a>
+
+
+
+
+      <a class="download-btn" target="_blank" 
+        href="https://adilet.zan.kz/kaz/docs/V2300032140" 
+        download
+        data-fulltext="12. «Техникалық және кәсіптік, орта білімнен кейінгі білім беру ұйымдарында оқытудың кредиттік технологиясы бойынша оқу процесін ұйымдастыру қағидаларын бекіту туралы» Қазақстан Республикасы Оқу-ағарту министрінің 2023 жылғы 28 наурыздағы № 75 бұйрығы">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path d="M5 20h14v-2H5v2zm7-18L5.33 11h3.67v4h6v-4h3.67L12 2z"/>
+        </svg>
+        <span>12. «Техникалық және кәсіптік, орта білімнен кейінгі білім беру ұйымдарында оқытудың кредиттік технологиясы бойынша оқу процесін ұйымдастыру қағидаларын бекіту туралы» Қазақстан Республикасы Оқу-ағарту министрінің 2023 жылғы 28 наурыздағы № 75 бұйрығы</span>
+      </a>
+
+
+
+      <a class="download-btn" target="_blank" 
+        href="https://adilet.zan.kz/kaz/docs/V2300033285" 
+        download
+        data-fulltext="13. «Мәдениет саласындағы білім беру ұйымдарын қоспағанда, білім беру ұйымдарында оқу-әдістемелік және ғылыми-әдістемелік жұмысты ұйымдастыру және жүзеге асыру қағидаларын бекіту туралы» Қазақстан Республикасы Оқу-ағарту министрінің 2023 жылғы 10 тамыздағы № 253 бұйрығы">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path d="M5 20h14v-2H5v2zm7-18L5.33 11h3.67v4h6v-4h3.67L12 2z"/>
+        </svg>
+        <span>13. «Мәдениет саласындағы білім беру ұйымдарын қоспағанда, білім беру ұйымдарында оқу-әдістемелік және ғылыми-әдістемелік жұмысты ұйымдастыру және жүзеге асыру қағидаларын бекіту туралы» Қазақстан Республикасы Оқу-ағарту министрінің 2023 жылғы 10 тамыздағы № 253 бұйрығы</span>
+      </a>
+      
+
+
+
+      <a class="download-btn" target="_blank" 
+        href="https://adilet.zan.kz/kaz/docs/V1500010916" 
+        download
+        data-fulltext="14. «Мектепке дейінгі, орта, техникалық және кәсіптік, орта білімнен кейінгі білім беру ұйымдарында эксперимент режимінде іске асырылатын білім беру бағдарламаларын әзірлеу, сынақтан өткізу және енгізу қағидаларын бекіту туралы» Қазақстан Республикасы Білім және ғылым министрінің 2015 жылғы 27 наурыздағы № 139 бұйрығы">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path d="M5 20h14v-2H5v2zm7-18L5.33 11h3.67v4h6v-4h3.67L12 2z"/>
+        </svg>
+        <span>14. «Мектепке дейінгі, орта, техникалық және кәсіптік, орта білімнен кейінгі білім беру ұйымдарында эксперимент режимінде іске асырылатын білім беру бағдарламаларын әзірлеу, сынақтан өткізу және енгізу қағидаларын бекіту туралы» Қазақстан Республикасы Білім және ғылым министрінің 2015 жылғы 27 наурыздағы № 139 бұйрығы</span>
+      </a>
+
+
+
+
+
+
+
+
+
   </div>
 
   <button class="accordion">ОӘБ жылдық жоспары</button>
@@ -631,30 +806,43 @@
         }
 
         .download-btn {
-          display: inline-flex;
-          align-items: center;
-          background-color: #33ccff;
-          color: #000;
-          padding: 10px 15px;
-          margin: 10px 0 20px;
-          border: none;
-          border-radius: 6px;
-          text-decoration: none;
-          font-weight: bold;
-          transition: background-color 0.3s;
-          font-size: 14px;
-        }
+  display: inline-flex;
+  align-items: center;
+  background-color: #33ccff;
+  color: #000;
+  padding: 10px 15px;
+  margin: 10px 0 20px;
+  border: none;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s;
+  font-size: 14px;
 
-        .download-btn:hover {
-          background-color: #00aaff;
-        }
+  max-width: 100%; /* или задай фиксированную ширину, например 400px */
+  overflow: hidden;
+}
 
-        .download-btn svg {
-          margin-right: 8px;
-          width: 18px;
-          height: 18px;
-          fill: currentColor;
-        }
+.download-btn:hover {
+  background-color: #00aaff;
+}
+
+.download-btn svg {
+  margin-right: 8px;
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
+  flex-shrink: 0;
+}
+
+/* ВАЖНО: стиль для текста внутри кнопки */
+.download-btn span {
+  display: inline-block;
+  max-width: 1100px; /* или сколько тебе нужно */
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
 
         /* Адаптивность */
         @media (max-width: 600px) {
@@ -862,6 +1050,21 @@ body.loading{visibility:hidden;}
   background:#12121200;
   padding:0 20px;
   transition:max-height .3s ease;
+}
+
+.tooltip {
+  position: absolute;
+  background-color: #111;
+  color: #fff;
+  padding: 6px 10px;
+  border-radius: 5px;
+  font-size: 13px;
+  max-width: 320px;
+  display: none;
+  z-index: 1000;
+  pointer-events: none;
+  white-space: normal;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
 }
 
 
@@ -1201,6 +1404,35 @@ document.addEventListener('DOMContentLoaded', () => {
       el.style.textTransform = 'uppercase';
     });
   }
+});
+</script>
+
+
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const tooltip = document.createElement('div');
+  tooltip.className = 'tooltip';
+  document.body.appendChild(tooltip);
+
+  document.querySelectorAll('.download-btn').forEach(btn => {
+    btn.addEventListener('mouseenter', () => {
+      const fullText = btn.getAttribute('data-fulltext');
+      if (fullText) {
+        tooltip.textContent = fullText;
+        tooltip.style.display = 'block';
+      }
+    });
+
+    btn.addEventListener('mousemove', (e) => {
+      tooltip.style.left = e.pageX + 15 + 'px';
+      tooltip.style.top = e.pageY + 15 + 'px';
+    });
+
+    btn.addEventListener('mouseleave', () => {
+      tooltip.style.display = 'none';
+    });
+  });
 });
 </script>
 
