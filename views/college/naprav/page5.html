@@ -520,14 +520,39 @@
 
   <button class="accordion">ОӘБ қызметі туралы жалпы ақпарат</button>
   <div class="panel">
-<img src="/static/images/umo/kaz.svg" alt="Икон" class="accordion-icon" />
+    <img src="/static/images/umo/kaz.svg" alt="Икон" class="accordion-icon" />
   </div>  
 
   <!-- Год 2025 -->
   <button class="accordion">ОӘБ профиліне сәйкес келетін колледждер базасы</button>
   <div class="panel">
-<img src="/static/images/umo/kart.svg" alt="Икоdн" class="accordion-icon" />
+    <button class="pdf-button" onclick="togglePDF(this, '/static/images/umo/kart.svg')">Колледждер базасы сандармен</button>
+    <div class="iframe-wrapper"></div>
+
+      <button class="pdf-button" onclick="showSubButtons(this)">
+    колледждер базасы тізімі
+  </button>
+
+  <div class="sub-buttons" style="display: none; margin-top: 15px;">
+    <button class="pdf-button" onclick="togglePDF(this, '/static/images/pdfs/region1.pdf')">
+      Алматы облысы
+    </button>
+    <div class="iframe-wrapper"></div>
+
+    <button class="pdf-button" onclick="togglePDF(this, '/static/images/pdfs/region2.pdf')">
+      Астана қаласы
+    </button>
+    <div class="iframe-wrapper"></div>
+
+    <button class="pdf-button" onclick="togglePDF(this, '/static/images/pdfs/region3.pdf')">
+      Қарағанды облысы
+    </button>
+    <div class="iframe-wrapper"></div>
   </div>
+  </div>
+
+
+
 
   <button class="accordion">Нормативтік-құқықтық актілер</button>
   <div class="panel">
@@ -725,6 +750,30 @@
     <div class="iframe-wrapper"></div>
     
   </div>
+
+
+
+
+    <button class="accordion">САРАПШЫЛАР БАЗАСЫ</button>
+  <div class="panel">
+        <button class="pdf-button" onclick="togglePDF(this, '/static/images/pdfs/Эксперты ОП(2).pdf#toolbar=0')">ББ сараптама жүргізу үшін үміткерлер тізімі</button>
+    <div class="iframe-wrapper"></div>
+    
+     <a class="download-btn" href="https://forms.gle/4DvpphmZ73nMdARd9" target="_blank" download>
+              <!-- SVG ↓ -->
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5 20h14v-2H5v2zm7-18L5.33 11h3.67v4h6v-4h3.67L12 2z"/></svg>
+              <span>ББ сараптама жүргізу үшін өтінім беру</span>
+          </a>
+
+
+      <a class="download-btn" href="https://forms.gle/WyhaQzzPkXbsyxNC7" target="_blank" download>
+              <!-- SVG ↓ -->
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5 20h14v-2H5v2zm7-18L5.33 11h3.67v4h6v-4h3.67L12 2z"/></svg>
+              <span>Бағалау құжаттамасының жиынтығына сараптама</span>
+      </a>
+
+
+  </div>
 <div>
       <style>
 
@@ -920,17 +969,7 @@
         </div>
 
         <!-- 3 -->
-        <div class="fold-item">
-          <div class="fold-head" data-translate="educational_program_3_title">
-            06120200 Системы информационной безопасности
-          </div>
-          <div class="fold-body">
-            <a class="download-btn" target="_blank" href="https://disk.yandex.kz/d/OfVMP5r--GtbOA" download>
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5 20h14v-2H5v2zm7-18L5.33 11h3.67v4h6v-4h3.67L12 2z"/></svg>
-              <span data-translate="S06120101112">4S06120202 Техник по информационной безопасности</span>
-            </a>
-          </div>
-        </div>
+
 
         <!-- 4 -->
         <div class="fold-item">
@@ -954,7 +993,17 @@
             </a>
           </div>
         </div>
-
+        <div class="fold-item">
+          <div class="fold-head" data-translate="educational_program_3_title">
+            06120200 Системы информационной безопасности
+          </div>
+          <div class="fold-body">
+            <a class="download-btn" target="_blank" href="https://disk.yandex.kz/d/OfVMP5r--GtbOA" download>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5 20h14v-2H5v2zm7-18L5.33 11h3.67v4h6v-4h3.67L12 2z"/></svg>
+              <span data-translate="S06120101112">4S06120202 Техник по информационной безопасности</span>
+            </a>
+          </div>
+        </div>
         <!-- 5 -->
         <div class="fold-item">
           <div class="fold-head" data-translate="educational_program_5_title">
@@ -985,6 +1034,7 @@ body.loading{visibility:hidden;}
   padding:30px 20px;
   font-family:'Segoe UI',sans-serif;
   display:flex;justify-content:center;
+  
 }
 
 .content-wrapper{display:flex;flex-direction:column;align-items:center;max-width:1000px;width:100%;}
@@ -1055,6 +1105,9 @@ body.loading{visibility:hidden;}
   padding:0 20px;
   transition:max-height .3s ease;
 }
+
+
+
 
 .tooltip {
   position: absolute;
@@ -1240,6 +1293,115 @@ function togglePDF(btn, url){
 
 
 
+    <button class="accordion">Фотогалерея</button>
+  <div class="panel">
+<div>
+  <style>
+
+.slider-container {
+  position: relative;
+  width: 80%;
+  max-width: 1000px;
+  overflow: hidden;
+  border-radius: 12px;
+  border: 4px solid #fff;
+  margin: 20px auto; /* Центрирование по горизонтали */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+    .slider-wrapper {
+      display: flex;
+      transition: transform 0.6s ease-in-out;
+      width: 100%;
+    }
+
+    .slide {
+      min-width: 100%;
+      box-sizing: border-box;
+    }
+
+    .slide img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .prev, .next {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: rgba(0, 0, 0, 0.5);
+      color: white;
+      font-size: 30px;
+      padding: 12px;
+      cursor: pointer;
+      border: none;
+      z-index: 1;
+    }
+
+    .prev { left: 10px; }
+    .next { right: 10px; }
+  </style>
+
+<div class="slider-container">
+  <div class="slider-wrapper" id="sliderWrapper">
+    <div class="slide">
+      <img src="\static\images\Galiaапай\IMG-20250612-WA0010.jpg" alt="Слайд 1">
+    </div>
+    <div class="slide">
+      <img src="\static\images\Galiaапай\IMG-20250612-WA0011.jpg" alt="Слайд 2">
+    </div>
+
+
+    <div class="slide">
+      <img src="\static\images\Galiaапай\IMG-20250612-WA0012.jpg" alt="Слайд 3">
+    </div>
+
+    <div class="slide">
+      <img src="\static\images\Galiaапай\IMG-20250612-WA0013.jpg" alt="Слайд 4">
+    </div>
+
+
+    <div class="slide">
+      <img src="\static\images\Galiaапай\IMG-20250612-WA0015.jpg" alt="Слайд 5">
+    </div>
+
+
+    <div class="slide">
+      <img src="\static\images\Galiaапай\IMG-20250612-WA0016.jpg" alt="Слайд 6">
+    </div>
+
+
+    <div class="slide">
+      <img src="\static\images\Galiaапай\IMG-20250612-WA0017.jpg" alt="Слайд 7">
+    </div>
+  </div>
+  <button class="prev" onclick="changeSlide(-1)">❮</button>
+  <button class="next" onclick="changeSlide(1)">❯</button>
+</div>
+
+<script>
+  const sliderWrapper = document.getElementById('sliderWrapper');
+  const slides = document.querySelectorAll('.slide');
+  let currentSlide = 0;
+
+  function changeSlide(direction) {
+    currentSlide += direction;
+    if (currentSlide < 0) currentSlide = slides.length - 1;
+    if (currentSlide >= slides.length) currentSlide = 0;
+    sliderWrapper.style.transform = `translateX(-${currentSlide * 100}%)`;
+  }
+</script>
+
+
+</div>
+  </div>
+
+
+
 </div>
 
 
@@ -1256,7 +1418,7 @@ function togglePDF(btn, url){
     <iframe 
   src="https://read.flypdf.ru/v/ce580527-3fd5-41f6-8e6b-82fbb2e95a16" 
   width="100%" 
-  height="800" 
+  height="600" 
   style="border: none; border-radius: 8px;">
 </iframe>
   </div>
