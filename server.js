@@ -18,6 +18,8 @@ const PORT = process.env.PORT || 3000;
 // ========================== ENV & CONSTANTS ==========================
 const DIRECTUS_URL = process.env.DIRECTUS_URL || 'http://localhost:12392';
 const DIRECTUS_API_KEY = process.env.DIRECTUS_API_KEY || 'NM_dTn_hkRBjZCAXazqaYVdoRBz6qoaL';
+
+// пароль
 const SECRET_PASSKEY = '00aa00aa';
 const CACHE_LIFETIME_MS = 24 * 60 * 60 * 1000; // 24 hours
 
