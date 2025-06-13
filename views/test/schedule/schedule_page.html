@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Schedule Table Viewer</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      max-width: 800px;
+      margin: auto;
+      padding: 2em;
+    }
+    h1 {
+      color: #2c3e50;
+    }
+    input[type="file"] {
+      margin-bottom: 1em;
+    }
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      margin-top: 1em;
+    }
+    th, td {
+      border: 1px solid #aaa;
+      padding: 0.5em;
+      text-align: left;
+    }
+    #status {
+      margin-top: 1em;
+      color: #888;
+    }
+  </style>
+</head>
+<body>
+  <h1>Upload Schedule File (.docx)</h1>
+  <input type="file" id="fileInput" accept=".docx" />
+  <button id="uploadButton">Upload & View</button>
+
+  <div id="status"></div>
+  <div id="tableContainer"></div>
+
+  <script>
+    // ⬅️ Define API base early
+    const API_BASE = location.hostname.includes("localhost") || location.hostname === "127.0.0.1"
+      ? "http://localhost:3000"
+      : "https://almatypolytech.edu.kz";
+  </script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const fileInput = document.getElementById('fileInput');
+      const uploadButton = document.getElementById('uploadButton');
+      const status = document.getElementById('status');
+      const container = document.getElementById('tableContainer');
+
+      const MAX_LENGTH = 8;
+      let listening = false;
+      let buffer = '';
+
+      // Initially hide UI
+      fileInput.style.display = 'none';
+      uploadButton.style.display = 'none';
+
+      // ✅ Load cached schedule if available
+      fetch(`${API_BASE}/cached-data`)
+        .then(res => {
+          if (!res.ok) throw new Error('No cached data');
+          return res.text();
+        })
+        .then(html => {
+          container.innerHTML = html;
+          status.textContent = 'Loaded cached schedule.';
+        })
+        .catch(() => {
+          status.textContent = 'No cached data found bro.';
+        });
+
+      // ✅ Attach upload handler
+      uploadButton.addEventListener('click', uploadFile);
+
+      // ✅ Define uploadFile globally
+      function uploadFile() {
+        const file = fileInput.files[0];
+        if (!file) {
+          status.textContent = 'Please select a file.';
+          return;
+        }
+
+        status.textContent = 'Uploading and parsing...';
+        const formData = new FormData();
+        formData.append('file', file);
+
+        fetch(`${API_BASE}/upload`, {
+          method: 'POST',
+          body: formData
+        })
+        .then(res => res.text())
+        .then(html => {
+          container.innerHTML = html;
+          status.textContent = 'Upload complete. Table rendered.';
+          fileInput.style.display = 'none';
+          uploadButton.style.display = 'none';
+        })
+        .catch(err => {
+          status.textContent = 'Error uploading file.';
+          console.error(err);
+        });
+      }
+
+      // 🔐 Secret passkey handler
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' && e.shiftKey) {
+          buffer = '';
+          listening = true;
+          return;
+        }
+
+        if (!listening) return;
+
+        const isAlphaNum = /^[a-zA-Z0-9]$/.test(e.key);
+        if (!isAlphaNum) return;
+
+        buffer += e.key;
+
+        if (buffer.length === MAX_LENGTH) {
+          validatePasskey(buffer).then(success => {
+            if (success) {
+              fileInput.style.display = '';
+              uploadButton.style.display = '';
+              status.textContent = '🔓 Upload unlocked.';
+            } else {
+              status.textContent = '❌ Invalid passkey.';
+            }
+            buffer = '';
+            listening = false;
+          });
+        }
+      });
+
+      async function validatePasskey(passkey) {
+        try {
+          const res = await fetch(`${API_BASE}/auth-passkey`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ passkey })
+          });
+
+          const json = await res.json();
+          return json.success === true;
+        } catch (err) {
+          console.error('[Error validating passkey]', err);
+          return false;
+        }
+      }
+    });
+  </script>
+</body>
+</html>
